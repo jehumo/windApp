@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "City.h"
 
 @interface ViewController ()
 
@@ -24,6 +25,29 @@
                                                                                                             NSData *data,
                                                                                                             NSError *connectionError) { // handle response
         NSLog(@"Log Debug Trace ::: data : %@", data);
+        
+        
+        // JSON array
+        NSError * error;
+        NSArray * JSONObjects = [NSJSONSerialization JSONObjectWithData:data
+                                                                options:kNilOptions
+                                                                  error:&error];
+        
+        // Parsing JSON Array
+        if (JSONObjects != nil) {
+            
+            // No error
+            for (NSDictionary * aDict in JSONObjects) {
+                
+                // Init a City object instance with the convenience initializer
+                City * city = [[ City alloc] initWithDictionary:aDict];
+                
+                NSLog(@"Log Debug Trace ::: city : %@", city);
+
+                
+                
+            }
+        }
 
 
     }];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CEA929E218FA9C97001673B1 /* AGTSimpleCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */; };
 		CEB76DE818F9A9AF007D8421 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DE718F9A9AF007D8421 /* Foundation.framework */; };
 		CEB76DEA18F9A9B0007D8421 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DE918F9A9B0007D8421 /* CoreGraphics.framework */; };
 		CEB76DEC18F9A9B0007D8421 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DEB18F9A9B0007D8421 /* UIKit.framework */; };
@@ -15,13 +16,15 @@
 		CEB76DF818F9A9B0007D8421 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB76DF718F9A9B0007D8421 /* AppDelegate.m */; };
 		CEB76DFB18F9A9B0007D8421 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB76DF918F9A9B0007D8421 /* Main_iPhone.storyboard */; };
 		CEB76DFE18F9A9B0007D8421 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB76DFC18F9A9B0007D8421 /* Main_iPad.storyboard */; };
-		CEB76E0118F9A9B0007D8421 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB76E0018F9A9B0007D8421 /* ViewController.m */; };
 		CEB76E0318F9A9B0007D8421 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB76E0218F9A9B0007D8421 /* Images.xcassets */; };
 		CEB76E0A18F9A9B0007D8421 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76E0918F9A9B0007D8421 /* XCTest.framework */; };
 		CEB76E0B18F9A9B0007D8421 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DE718F9A9AF007D8421 /* Foundation.framework */; };
 		CEB76E0C18F9A9B0007D8421 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DEB18F9A9B0007D8421 /* UIKit.framework */; };
 		CEB76E1418F9A9B0007D8421 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEB76E1218F9A9B0007D8421 /* InfoPlist.strings */; };
 		CEB76E1618F9A9B0007D8421 /* iOSWindChallengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB76E1518F9A9B0007D8421 /* iOSWindChallengeTests.m */; };
+		CEB76E2318F9B087007D8421 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB76E2218F9B087007D8421 /* ViewController.m */; };
+		CEB76E2718F9B5A9007D8421 /* DetailWeatherCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB76E2618F9B5A9007D8421 /* DetailWeatherCityViewController.m */; };
+		CEB76E2A18F9B9D3007D8421 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB76E2918F9B9D3007D8421 /* City.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CEA929E018FA9C97001673B1 /* AGTSimpleCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTSimpleCoreDataStack.h; sourceTree = "<group>"; };
+		CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTSimpleCoreDataStack.m; sourceTree = "<group>"; };
 		CEB76DE418F9A9AF007D8421 /* iOSWindChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSWindChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB76DE718F9A9AF007D8421 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEB76DE918F9A9B0007D8421 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -47,14 +52,18 @@
 		CEB76DF718F9A9B0007D8421 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CEB76DFA18F9A9B0007D8421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		CEB76DFD18F9A9B0007D8421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		CEB76DFF18F9A9B0007D8421 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CEB76E0018F9A9B0007D8421 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CEB76E0218F9A9B0007D8421 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEB76E0818F9A9B0007D8421 /* iOSWindChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSWindChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB76E0918F9A9B0007D8421 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CEB76E1118F9A9B0007D8421 /* iOSWindChallengeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOSWindChallengeTests-Info.plist"; sourceTree = "<group>"; };
 		CEB76E1318F9A9B0007D8421 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CEB76E1518F9A9B0007D8421 /* iOSWindChallengeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSWindChallengeTests.m; sourceTree = "<group>"; };
+		CEB76E2118F9B087007D8421 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CEB76E2218F9B087007D8421 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CEB76E2518F9B5A9007D8421 /* DetailWeatherCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailWeatherCityViewController.h; sourceTree = "<group>"; };
+		CEB76E2618F9B5A9007D8421 /* DetailWeatherCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailWeatherCityViewController.m; sourceTree = "<group>"; };
+		CEB76E2818F9B9D3007D8421 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = model/City.h; sourceTree = "<group>"; };
+		CEB76E2918F9B9D3007D8421 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = City.m; path = model/City.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +123,13 @@
 		CEB76DED18F9A9B0007D8421 /* iOSWindChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				CEB76E2418F9B09C007D8421 /* Controllers */,
+				CEB76E1F18F9AFF0007D8421 /* Model */,
 				CEB76DF618F9A9B0007D8421 /* AppDelegate.h */,
 				CEB76DF718F9A9B0007D8421 /* AppDelegate.m */,
 				CEB76DF918F9A9B0007D8421 /* Main_iPhone.storyboard */,
 				CEB76DFC18F9A9B0007D8421 /* Main_iPad.storyboard */,
-				CEB76DFF18F9A9B0007D8421 /* ViewController.h */,
-				CEB76E0018F9A9B0007D8421 /* ViewController.m */,
+				CEB76E2018F9B04B007D8421 /* View */,
 				CEB76E0218F9A9B0007D8421 /* Images.xcassets */,
 				CEB76DEE18F9A9B0007D8421 /* Supporting Files */,
 			);
@@ -153,6 +163,37 @@
 				CEB76E1218F9A9B0007D8421 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CEB76E1F18F9AFF0007D8421 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEA929E018FA9C97001673B1 /* AGTSimpleCoreDataStack.h */,
+				CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */,
+				CEB76E2818F9B9D3007D8421 /* City.h */,
+				CEB76E2918F9B9D3007D8421 /* City.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CEB76E2018F9B04B007D8421 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEB76E2518F9B5A9007D8421 /* DetailWeatherCityViewController.h */,
+				CEB76E2618F9B5A9007D8421 /* DetailWeatherCityViewController.m */,
+				CEB76E2118F9B087007D8421 /* ViewController.h */,
+				CEB76E2218F9B087007D8421 /* ViewController.m */,
+			);
+			name = View;
+			path = view;
+			sourceTree = "<group>";
+		};
+		CEB76E2418F9B09C007D8421 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			path = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +243,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Piksel;
 				TargetAttributes = {
+					CEB76DE318F9A9AF007D8421 = {
+						DevelopmentTeam = A7WQE96FSS;
+					};
 					CEB76E0718F9A9B0007D8421 = {
 						TestTargetID = CEB76DE318F9A9AF007D8421;
 					};
@@ -253,8 +297,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEB76E0118F9A9B0007D8421 /* ViewController.m in Sources */,
+				CEB76E2A18F9B9D3007D8421 /* City.m in Sources */,
 				CEB76DF818F9A9B0007D8421 /* AppDelegate.m in Sources */,
+				CEA929E218FA9C97001673B1 /* AGTSimpleCoreDataStack.m in Sources */,
+				CEB76E2718F9B5A9007D8421 /* DetailWeatherCityViewController.m in Sources */,
+				CEB76E2318F9B087007D8421 /* ViewController.m in Sources */,
 				CEB76DF418F9A9B0007D8421 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,9 +437,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSWindChallenge/iOSWindChallenge-Prefix.pch";
 				INFOPLIST_FILE = "iOSWindChallenge/iOSWindChallenge-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -403,9 +452,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSWindChallenge/iOSWindChallenge-Prefix.pch";
 				INFOPLIST_FILE = "iOSWindChallenge/iOSWindChallenge-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -470,6 +521,7 @@
 				CEB76E1B18F9A9B0007D8421 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CEB76E1C18F9A9B0007D8421 /* Build configuration list for PBXNativeTarget "iOSWindChallengeTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +530,7 @@
 				CEB76E1E18F9A9B0007D8421 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
