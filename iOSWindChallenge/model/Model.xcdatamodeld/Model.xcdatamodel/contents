@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Alert" representedClassName="Alert" parentEntity="NamedEntity" syncable="YES">
+        <attribute name="speedTrigger" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="windDirection" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="specificDirection" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="WindDirectionsCatalog" inverseName="specifyWindDirectionOfAnAlert" inverseEntity="WindDirectionsCatalog" syncable="YES"/>
+        <relationship name="watchACity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="City" inverseName="keepsWindAlert" inverseEntity="City" syncable="YES"/>
+    </entity>
+    <entity name="City" representedClassName="City" parentEntity="NamedEntity" syncable="YES">
+        <attribute name="degrees" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="gust" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="pressure" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="temperature" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="keepsWindAlert" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Alert" inverseName="watchACity" inverseEntity="Alert" syncable="YES"/>
+    </entity>
+    <entity name="NamedEntity" representedClassName="NamedEntity" syncable="YES">
+        <attribute name="creationDate" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="modificationDate" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="WindDirectionsCatalog" representedClassName="WindDirectionsCatalog" parentEntity="NamedEntity" syncable="YES">
+        <attribute name="degrees" attributeType="Integer 16" minValueString="0" maxValueString="360" defaultValueString="0" syncable="YES"/>
+        <relationship name="specifyWindDirectionOfAnAlert" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Alert" inverseName="specificDirection" inverseEntity="Alert" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="City" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="Alert" positionX="423" positionY="-31" width="128" height="103"/>
+        <element name="NamedEntity" positionX="207" positionY="-466" width="216" height="88"/>
+        <element name="WindDirectionsCatalog" positionX="655" positionY="-271" width="263" height="73"/>
+    </elements>
+</model>

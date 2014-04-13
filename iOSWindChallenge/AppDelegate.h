@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class AGTSimpleCoreDataStack; 
+
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+// Property for the model, to be initialized whe the app start
+@property (strong, nonatomic) AGTSimpleCoreDataStack * model;
 
 @end

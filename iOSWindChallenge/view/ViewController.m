@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "City.h"
+//#import "City.h"
 
 @interface ViewController ()
 
@@ -40,9 +40,9 @@
             for (NSDictionary * aDict in JSONObjects) {
                 
                 // Init a City object instance with the convenience initializer
-                City * city = [[ City alloc] initWithDictionary:aDict];
+//                City * city = [[ City alloc] initWithDictionary:aDict];
                 
-                NSLog(@"Log Debug Trace ::: city : %@", city);
+//                NSLog(@"Log Debug Trace ::: city : %@", city);
 
                 
                 

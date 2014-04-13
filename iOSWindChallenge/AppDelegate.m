@@ -7,12 +7,21 @@
 //
 
 #import "AppDelegate.h"
+#import "AGTSimpleCoreDataStack.h"
+#import <CoreData/CoreData.h>
+#import "WindDirectionsCatalog.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // Create the Instance of the Core Data stack
+    
+    self.model = [AGTSimpleCoreDataStack coreDataStackWithModelName:@"Model"];
+    
+    [self loadData];
+    
+    
     return YES;
 }
 							
@@ -40,7 +49,35 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+#pragma mark - Load Data
+
+-(void) loadData {
+    // Create data
+    
+    // Retrieve the context from the model
+    //NSManagedObject * catalogWindDirection = [NSEntityDescription insertNewObjectForEntityForName:@"WindDirectionsCatalog"
+      //                                                                     inManagedObjectContext:self.model.context];
+    
+    WindDirectionsCatalog * windCatalog =[NSEntityDescription insertNewObjectForEntityForName:@"WindDirectionsCatalog"
+                                                                       inManagedObjectContext:self.model.context];
+                                          
+    windCatalog.degrees = 0;
+    
+    
+    // Assign values to properties with KVC
+//    [catalogWindDirection setValue:@"N" forKeyPath:@"name"];
+//    [catalogWindDirection setValue:[NSDate date] forKeyPath:@"creationDate"];
+//    [catalogWindDirection setValue:[NSDate date] forKeyPath:@"modificationDate"];
+//    [catalogWindDirection setValue:[NSNumber numberWithInt:0]  forKeyPath:@"degrees"];
+
+
+    
+//    NSLog(@"Log Debug Trace ::: catalogWindDirection : %@", catalogWindDirection);
+
+    
+    
+}
+
 
 @end

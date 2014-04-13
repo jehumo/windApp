@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CEA929E218FA9C97001673B1 /* AGTSimpleCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */; };
+		CEA929E518FAA2DE001673B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEA929E318FAA2DE001673B1 /* Model.xcdatamodeld */; };
 		CEB76DE818F9A9AF007D8421 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DE718F9A9AF007D8421 /* Foundation.framework */; };
 		CEB76DEA18F9A9B0007D8421 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DE918F9A9B0007D8421 /* CoreGraphics.framework */; };
 		CEB76DEC18F9A9B0007D8421 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DEB18F9A9B0007D8421 /* UIKit.framework */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		CEA929E018FA9C97001673B1 /* AGTSimpleCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTSimpleCoreDataStack.h; sourceTree = "<group>"; };
 		CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTSimpleCoreDataStack.m; sourceTree = "<group>"; };
+		CEA929E418FAA2DE001673B1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		CEB76DE418F9A9AF007D8421 /* iOSWindChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSWindChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB76DE718F9A9AF007D8421 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEB76DE918F9A9B0007D8421 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -170,6 +172,7 @@
 			children = (
 				CEA929E018FA9C97001673B1 /* AGTSimpleCoreDataStack.h */,
 				CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */,
+				CEA929E318FAA2DE001673B1 /* Model.xcdatamodeld */,
 				CEB76E2818F9B9D3007D8421 /* City.h */,
 				CEB76E2918F9B9D3007D8421 /* City.m */,
 			);
@@ -300,6 +303,7 @@
 				CEB76E2A18F9B9D3007D8421 /* City.m in Sources */,
 				CEB76DF818F9A9B0007D8421 /* AppDelegate.m in Sources */,
 				CEA929E218FA9C97001673B1 /* AGTSimpleCoreDataStack.m in Sources */,
+				CEA929E518FAA2DE001673B1 /* Model.xcdatamodeld in Sources */,
 				CEB76E2718F9B5A9007D8421 /* DetailWeatherCityViewController.m in Sources */,
 				CEB76E2318F9B087007D8421 /* ViewController.m in Sources */,
 				CEB76DF418F9A9B0007D8421 /* main.m in Sources */,
@@ -533,6 +537,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CEA929E318FAA2DE001673B1 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CEA929E418FAA2DE001673B1 /* Model.xcdatamodel */,
+			);
+			currentVersion = CEA929E418FAA2DE001673B1 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = model/Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CEB76DDC18F9A9AF007D8421 /* Project object */;
 }
