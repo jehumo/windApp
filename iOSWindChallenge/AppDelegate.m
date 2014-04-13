@@ -57,14 +57,14 @@
     
     // Retrieve the context from the model
 
-    WindDirectionsCatalog * windCatalog = [WindDirectionsCatalog windDirectionsCatalogWithName:@"N"
-                                           degrees:[NSNumber numberWithInt:0]
-                                           
-                                                                                       context:self.model.context];
-                                          
-    
-
-    NSLog(@"Log Debug Trace ::: windCatalog : %@", windCatalog);
+//    WindDirectionsCatalog * windCatalog = [WindDirectionsCatalog windDirectionsCatalogWithName:@"N"
+//                                           degrees:[NSNumber numberWithInt:0]
+//                                           
+//                                                                                       context:self.model.context];
+//                                          
+//    
+//
+//    NSLog(@"Log Debug Trace ::: windCatalog : %@", windCatalog);
 
     
     

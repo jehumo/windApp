@@ -4,6 +4,7 @@
 #import "_JHMWindDirectionsCatalog.h"
 
 const struct JHMWindDirectionsCatalogAttributes JHMWindDirectionsCatalogAttributes = {
+	.degreesMax = @"degreesMax",
 	.degreesMin = @"degreesMin",
 };
 
@@ -40,6 +41,11 @@ const struct JHMWindDirectionsCatalogFetchedProperties JHMWindDirectionsCatalogF
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"degreesMaxValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"degreesMax"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 	if ([key isEqualToString:@"degreesMinValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"degreesMin"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -48,6 +54,32 @@ const struct JHMWindDirectionsCatalogFetchedProperties JHMWindDirectionsCatalogF
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic degreesMax;
+
+
+
+- (int16_t)degreesMaxValue {
+	NSNumber *result = [self degreesMax];
+	return [result shortValue];
+}
+
+- (void)setDegreesMaxValue:(int16_t)value_ {
+	[self setDegreesMax:[NSNumber numberWithShort:value_]];
+}
+
+- (int16_t)primitiveDegreesMaxValue {
+	NSNumber *result = [self primitiveDegreesMax];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveDegreesMaxValue:(int16_t)value_ {
+	[self setPrimitiveDegreesMax:[NSNumber numberWithShort:value_]];
+}
+
 
 
 

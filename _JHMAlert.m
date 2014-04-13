@@ -5,7 +5,6 @@
 
 const struct JHMAlertAttributes JHMAlertAttributes = {
 	.speedTrigger = @"speedTrigger",
-	.windDirection = @"windDirection",
 };
 
 const struct JHMAlertRelationships JHMAlertRelationships = {
@@ -42,8 +41,8 @@ const struct JHMAlertFetchedProperties JHMAlertFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"windDirectionValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"windDirection"];
+	if ([key isEqualToString:@"speedTriggerValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"speedTrigger"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -58,29 +57,22 @@ const struct JHMAlertFetchedProperties JHMAlertFetchedProperties = {
 
 
 
-
-
-
-@dynamic windDirection;
-
-
-
-- (int16_t)windDirectionValue {
-	NSNumber *result = [self windDirection];
+- (int16_t)speedTriggerValue {
+	NSNumber *result = [self speedTrigger];
 	return [result shortValue];
 }
 
-- (void)setWindDirectionValue:(int16_t)value_ {
-	[self setWindDirection:[NSNumber numberWithShort:value_]];
+- (void)setSpeedTriggerValue:(int16_t)value_ {
+	[self setSpeedTrigger:[NSNumber numberWithShort:value_]];
 }
 
-- (int16_t)primitiveWindDirectionValue {
-	NSNumber *result = [self primitiveWindDirection];
+- (int16_t)primitiveSpeedTriggerValue {
+	NSNumber *result = [self primitiveSpeedTrigger];
 	return [result shortValue];
 }
 
-- (void)setPrimitiveWindDirectionValue:(int16_t)value_ {
-	[self setPrimitiveWindDirection:[NSNumber numberWithShort:value_]];
+- (void)setPrimitiveSpeedTriggerValue:(int16_t)value_ {
+	[self setPrimitiveSpeedTrigger:[NSNumber numberWithShort:value_]];
 }
 
 

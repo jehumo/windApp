@@ -6,7 +6,6 @@
 
 extern const struct JHMAlertAttributes {
 	__unsafe_unretained NSString *speedTrigger;
-	__unsafe_unretained NSString *windDirection;
 } JHMAlertAttributes;
 
 extern const struct JHMAlertRelationships {
@@ -19,7 +18,6 @@ extern const struct JHMAlertFetchedProperties {
 
 @class JHMWindDirectionsCatalog;
 @class JHMCity;
-
 
 
 
@@ -36,25 +34,15 @@ extern const struct JHMAlertFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSDecimalNumber* speedTrigger;
+@property (nonatomic, strong) NSNumber* speedTrigger;
 
 
+
+@property int16_t speedTriggerValue;
+- (int16_t)speedTriggerValue;
+- (void)setSpeedTriggerValue:(int16_t)value_;
 
 //- (BOOL)validateSpeedTrigger:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSNumber* windDirection;
-
-
-
-@property int16_t windDirectionValue;
-- (int16_t)windDirectionValue;
-- (void)setWindDirectionValue:(int16_t)value_;
-
-//- (BOOL)validateWindDirection:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -84,17 +72,11 @@ extern const struct JHMAlertFetchedProperties {
 @interface _JHMAlert (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSDecimalNumber*)primitiveSpeedTrigger;
-- (void)setPrimitiveSpeedTrigger:(NSDecimalNumber*)value;
+- (NSNumber*)primitiveSpeedTrigger;
+- (void)setPrimitiveSpeedTrigger:(NSNumber*)value;
 
-
-
-
-- (NSNumber*)primitiveWindDirection;
-- (void)setPrimitiveWindDirection:(NSNumber*)value;
-
-- (int16_t)primitiveWindDirectionValue;
-- (void)setPrimitiveWindDirectionValue:(int16_t)value_;
+- (int16_t)primitiveSpeedTriggerValue;
+- (void)setPrimitiveSpeedTriggerValue:(int16_t)value_;
 
 
 

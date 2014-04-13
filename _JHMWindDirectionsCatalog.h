@@ -5,6 +5,7 @@
 #import "JHMNamedEntity.h"
 
 extern const struct JHMWindDirectionsCatalogAttributes {
+	__unsafe_unretained NSString *degreesMax;
 	__unsafe_unretained NSString *degreesMin;
 } JHMWindDirectionsCatalogAttributes;
 
@@ -19,6 +20,7 @@ extern const struct JHMWindDirectionsCatalogFetchedProperties {
 
 
 
+
 @interface JHMWindDirectionsCatalogID : NSManagedObjectID {}
 @end
 
@@ -27,6 +29,20 @@ extern const struct JHMWindDirectionsCatalogFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (JHMWindDirectionsCatalogID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* degreesMax;
+
+
+
+@property int16_t degreesMaxValue;
+- (int16_t)degreesMaxValue;
+- (void)setDegreesMaxValue:(int16_t)value_;
+
+//- (BOOL)validateDegreesMax:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -66,6 +82,15 @@ extern const struct JHMWindDirectionsCatalogFetchedProperties {
 @end
 
 @interface _JHMWindDirectionsCatalog (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSNumber*)primitiveDegreesMax;
+- (void)setPrimitiveDegreesMax:(NSNumber*)value;
+
+- (int16_t)primitiveDegreesMaxValue;
+- (void)setPrimitiveDegreesMaxValue:(int16_t)value_;
+
+
 
 
 - (NSNumber*)primitiveDegreesMin;

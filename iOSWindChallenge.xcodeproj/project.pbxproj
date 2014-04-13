@@ -191,6 +191,7 @@
 		CEB76E1F18F9AFF0007D8421 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CEA929E318FAA2DE001673B1 /* Model.xcdatamodeld */,
 				CEA92A3C18FAF1D0001673B1 /* _JHMAlert.h */,
 				CEA92A3D18FAF1D0001673B1 /* _JHMAlert.m */,
 				CEA92A3E18FAF1D0001673B1 /* _JHMCity.h */,
@@ -209,7 +210,6 @@
 				CEA92A4B18FAF1D0001673B1 /* JHMWindDirectionsCatalog.m */,
 				CEA929E018FA9C97001673B1 /* AGTSimpleCoreDataStack.h */,
 				CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */,
-				CEA929E318FAA2DE001673B1 /* Model.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
