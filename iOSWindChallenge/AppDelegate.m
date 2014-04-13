@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "AGTSimpleCoreDataStack.h"
 #import <CoreData/CoreData.h>
-#import "WindDirectionsCatalog.h"
+#import "JHMWindDirectionsCatalog.h"
 
 @implementation AppDelegate
 
@@ -56,13 +56,16 @@
     // Create data
     
     // Retrieve the context from the model
-    //NSManagedObject * catalogWindDirection = [NSEntityDescription insertNewObjectForEntityForName:@"WindDirectionsCatalog"
-      //                                                                     inManagedObjectContext:self.model.context];
-    
-    WindDirectionsCatalog * windCatalog =[NSEntityDescription insertNewObjectForEntityForName:@"WindDirectionsCatalog"
-                                                                       inManagedObjectContext:self.model.context];
+
+    WindDirectionsCatalog * windCatalog = [WindDirectionsCatalog windDirectionsCatalogWithName:@"N"
+                                           degrees:[NSNumber numberWithInt:0]
+                                           
+                                                                                       context:self.model.context];
                                           
-    windCatalog.degrees = 0;
+    
+
+    NSLog(@"Log Debug Trace ::: windCatalog : %@", windCatalog);
+
     
     
     // Assign values to properties with KVC

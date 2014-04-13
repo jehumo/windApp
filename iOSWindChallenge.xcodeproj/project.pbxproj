@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		CEA929E218FA9C97001673B1 /* AGTSimpleCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */; };
 		CEA929E518FAA2DE001673B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEA929E318FAA2DE001673B1 /* Model.xcdatamodeld */; };
+		CEA92A4C18FAF1D0001673B1 /* _JHMAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA92A3D18FAF1D0001673B1 /* _JHMAlert.m */; };
+		CEA92A4D18FAF1D0001673B1 /* _JHMCity.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA92A3F18FAF1D0001673B1 /* _JHMCity.m */; };
+		CEA92A4E18FAF1D0001673B1 /* _JHMNamedEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA92A4118FAF1D0001673B1 /* _JHMNamedEntity.m */; };
+		CEA92A4F18FAF1D0001673B1 /* _JHMWindDirectionsCatalog.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA92A4318FAF1D0001673B1 /* _JHMWindDirectionsCatalog.m */; };
+		CEA92A5018FAF1D0001673B1 /* JHMAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA92A4518FAF1D0001673B1 /* JHMAlert.m */; };
+		CEA92A5118FAF1D0001673B1 /* JHMCity.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA92A4718FAF1D0001673B1 /* JHMCity.m */; };
+		CEA92A5218FAF1D0001673B1 /* JHMNamedEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA92A4918FAF1D0001673B1 /* JHMNamedEntity.m */; };
+		CEA92A5318FAF1D0001673B1 /* JHMWindDirectionsCatalog.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA92A4B18FAF1D0001673B1 /* JHMWindDirectionsCatalog.m */; };
 		CEB76DE818F9A9AF007D8421 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DE718F9A9AF007D8421 /* Foundation.framework */; };
 		CEB76DEA18F9A9B0007D8421 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DE918F9A9B0007D8421 /* CoreGraphics.framework */; };
 		CEB76DEC18F9A9B0007D8421 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DEB18F9A9B0007D8421 /* UIKit.framework */; };
@@ -25,7 +33,6 @@
 		CEB76E1618F9A9B0007D8421 /* iOSWindChallengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB76E1518F9A9B0007D8421 /* iOSWindChallengeTests.m */; };
 		CEB76E2318F9B087007D8421 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB76E2218F9B087007D8421 /* ViewController.m */; };
 		CEB76E2718F9B5A9007D8421 /* DetailWeatherCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB76E2618F9B5A9007D8421 /* DetailWeatherCityViewController.m */; };
-		CEB76E2A18F9B9D3007D8421 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB76E2918F9B9D3007D8421 /* City.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +49,22 @@
 		CEA929E018FA9C97001673B1 /* AGTSimpleCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTSimpleCoreDataStack.h; sourceTree = "<group>"; };
 		CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTSimpleCoreDataStack.m; sourceTree = "<group>"; };
 		CEA929E418FAA2DE001673B1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		CEA92A3C18FAF1D0001673B1 /* _JHMAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JHMAlert.h; sourceTree = SOURCE_ROOT; };
+		CEA92A3D18FAF1D0001673B1 /* _JHMAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JHMAlert.m; sourceTree = SOURCE_ROOT; };
+		CEA92A3E18FAF1D0001673B1 /* _JHMCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JHMCity.h; sourceTree = SOURCE_ROOT; };
+		CEA92A3F18FAF1D0001673B1 /* _JHMCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JHMCity.m; sourceTree = SOURCE_ROOT; };
+		CEA92A4018FAF1D0001673B1 /* _JHMNamedEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JHMNamedEntity.h; sourceTree = SOURCE_ROOT; };
+		CEA92A4118FAF1D0001673B1 /* _JHMNamedEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JHMNamedEntity.m; sourceTree = SOURCE_ROOT; };
+		CEA92A4218FAF1D0001673B1 /* _JHMWindDirectionsCatalog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JHMWindDirectionsCatalog.h; sourceTree = SOURCE_ROOT; };
+		CEA92A4318FAF1D0001673B1 /* _JHMWindDirectionsCatalog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JHMWindDirectionsCatalog.m; sourceTree = SOURCE_ROOT; };
+		CEA92A4418FAF1D0001673B1 /* JHMAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHMAlert.h; sourceTree = SOURCE_ROOT; };
+		CEA92A4518FAF1D0001673B1 /* JHMAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHMAlert.m; sourceTree = SOURCE_ROOT; };
+		CEA92A4618FAF1D0001673B1 /* JHMCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHMCity.h; sourceTree = SOURCE_ROOT; };
+		CEA92A4718FAF1D0001673B1 /* JHMCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHMCity.m; sourceTree = SOURCE_ROOT; };
+		CEA92A4818FAF1D0001673B1 /* JHMNamedEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHMNamedEntity.h; sourceTree = SOURCE_ROOT; };
+		CEA92A4918FAF1D0001673B1 /* JHMNamedEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHMNamedEntity.m; sourceTree = SOURCE_ROOT; };
+		CEA92A4A18FAF1D0001673B1 /* JHMWindDirectionsCatalog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHMWindDirectionsCatalog.h; sourceTree = SOURCE_ROOT; };
+		CEA92A4B18FAF1D0001673B1 /* JHMWindDirectionsCatalog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHMWindDirectionsCatalog.m; sourceTree = SOURCE_ROOT; };
 		CEB76DE418F9A9AF007D8421 /* iOSWindChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSWindChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB76DE718F9A9AF007D8421 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEB76DE918F9A9B0007D8421 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,8 +87,6 @@
 		CEB76E2218F9B087007D8421 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CEB76E2518F9B5A9007D8421 /* DetailWeatherCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailWeatherCityViewController.h; sourceTree = "<group>"; };
 		CEB76E2618F9B5A9007D8421 /* DetailWeatherCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailWeatherCityViewController.m; sourceTree = "<group>"; };
-		CEB76E2818F9B9D3007D8421 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = model/City.h; sourceTree = "<group>"; };
-		CEB76E2918F9B9D3007D8421 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = City.m; path = model/City.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,11 +191,25 @@
 		CEB76E1F18F9AFF0007D8421 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CEA92A3C18FAF1D0001673B1 /* _JHMAlert.h */,
+				CEA92A3D18FAF1D0001673B1 /* _JHMAlert.m */,
+				CEA92A3E18FAF1D0001673B1 /* _JHMCity.h */,
+				CEA92A3F18FAF1D0001673B1 /* _JHMCity.m */,
+				CEA92A4018FAF1D0001673B1 /* _JHMNamedEntity.h */,
+				CEA92A4118FAF1D0001673B1 /* _JHMNamedEntity.m */,
+				CEA92A4218FAF1D0001673B1 /* _JHMWindDirectionsCatalog.h */,
+				CEA92A4318FAF1D0001673B1 /* _JHMWindDirectionsCatalog.m */,
+				CEA92A4418FAF1D0001673B1 /* JHMAlert.h */,
+				CEA92A4518FAF1D0001673B1 /* JHMAlert.m */,
+				CEA92A4618FAF1D0001673B1 /* JHMCity.h */,
+				CEA92A4718FAF1D0001673B1 /* JHMCity.m */,
+				CEA92A4818FAF1D0001673B1 /* JHMNamedEntity.h */,
+				CEA92A4918FAF1D0001673B1 /* JHMNamedEntity.m */,
+				CEA92A4A18FAF1D0001673B1 /* JHMWindDirectionsCatalog.h */,
+				CEA92A4B18FAF1D0001673B1 /* JHMWindDirectionsCatalog.m */,
 				CEA929E018FA9C97001673B1 /* AGTSimpleCoreDataStack.h */,
 				CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */,
 				CEA929E318FAA2DE001673B1 /* Model.xcdatamodeld */,
-				CEB76E2818F9B9D3007D8421 /* City.h */,
-				CEB76E2918F9B9D3007D8421 /* City.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -300,13 +335,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEB76E2A18F9B9D3007D8421 /* City.m in Sources */,
+				CEA92A4C18FAF1D0001673B1 /* _JHMAlert.m in Sources */,
 				CEB76DF818F9A9B0007D8421 /* AppDelegate.m in Sources */,
 				CEA929E218FA9C97001673B1 /* AGTSimpleCoreDataStack.m in Sources */,
+				CEA92A5318FAF1D0001673B1 /* JHMWindDirectionsCatalog.m in Sources */,
+				CEA92A4E18FAF1D0001673B1 /* _JHMNamedEntity.m in Sources */,
 				CEA929E518FAA2DE001673B1 /* Model.xcdatamodeld in Sources */,
+				CEA92A5018FAF1D0001673B1 /* JHMAlert.m in Sources */,
+				CEA92A4F18FAF1D0001673B1 /* _JHMWindDirectionsCatalog.m in Sources */,
+				CEA92A4D18FAF1D0001673B1 /* _JHMCity.m in Sources */,
+				CEA92A5118FAF1D0001673B1 /* JHMCity.m in Sources */,
 				CEB76E2718F9B5A9007D8421 /* DetailWeatherCityViewController.m in Sources */,
 				CEB76E2318F9B087007D8421 /* ViewController.m in Sources */,
 				CEB76DF418F9A9B0007D8421 /* main.m in Sources */,
+				CEA92A5218FAF1D0001673B1 /* JHMNamedEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
