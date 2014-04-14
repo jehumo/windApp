@@ -10,6 +10,32 @@
 
 @implementation JHMCity
 
-// Custom logic goes here.
++(instancetype) cityWithName:(NSString *) aName
+               longitudeCity:(NSNumber *) aLongitude
+                latitudeCity:(NSNumber *) aLatitude
+              temperatureNow:(NSNumber *) currentTemperature
+                    speedNow:(NSNumber *) currentSpeed
+                 pressureNow:(NSNumber *) currentPressure
+                     gustNow:(NSNumber *) currentGust
+                  degreesNow:(NSNumber *) currentDegrees
+                     context:(NSManagedObjectContext *) aContext {
+    
+    JHMCity * newFavoriteCity = [NSEntityDescription insertNewObjectForEntityForName:[JHMCity entityName]
+                                                              inManagedObjectContext:aContext];
+    
+    
+    newFavoriteCity.name = aName;
+    newFavoriteCity.latitude=aLatitude;
+    newFavoriteCity.longitude=aLongitude;
+    newFavoriteCity.temperature = currentTemperature;
+    newFavoriteCity.speed = currentSpeed;
+    newFavoriteCity.degrees = currentDegrees;
+    newFavoriteCity.pressure = currentPressure;
+    newFavoriteCity.gust = currentGust;
+    
+    newFavoriteCity.creationDate = [NSDate date];
+    return newFavoriteCity;
+                                 
+}
 
 @end

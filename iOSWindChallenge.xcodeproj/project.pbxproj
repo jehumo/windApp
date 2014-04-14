@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71773BC318FC18A4009136DE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71773BC218FC18A4009136DE /* CoreData.framework */; };
 		CEA929E218FA9C97001673B1 /* AGTSimpleCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */; };
 		CEA929E518FAA2DE001673B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEA929E318FAA2DE001673B1 /* Model.xcdatamodeld */; };
 		CEA92A4C18FAF1D0001673B1 /* _JHMAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA92A3D18FAF1D0001673B1 /* _JHMAlert.m */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		71773BC218FC18A4009136DE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CEA929E018FA9C97001673B1 /* AGTSimpleCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTSimpleCoreDataStack.h; sourceTree = "<group>"; };
 		CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTSimpleCoreDataStack.m; sourceTree = "<group>"; };
 		CEA929E418FAA2DE001673B1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71773BC318FC18A4009136DE /* CoreData.framework in Frameworks */,
 				CEB76DEA18F9A9B0007D8421 /* CoreGraphics.framework in Frameworks */,
 				CEB76DEC18F9A9B0007D8421 /* UIKit.framework in Frameworks */,
 				CEB76DE818F9A9AF007D8421 /* Foundation.framework in Frameworks */,
@@ -135,6 +138,7 @@
 		CEB76DE618F9A9AF007D8421 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				71773BC218FC18A4009136DE /* CoreData.framework */,
 				CEB76DE718F9A9AF007D8421 /* Foundation.framework */,
 				CEB76DE918F9A9B0007D8421 /* CoreGraphics.framework */,
 				CEB76DEB18F9A9B0007D8421 /* UIKit.framework */,

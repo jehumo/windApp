@@ -17,7 +17,7 @@
     </entity>
     <entity name="NamedEntity" representedClassName="JHMNamedEntity" syncable="YES">
         <attribute name="creationDate" attributeType="Date" indexed="YES" syncable="YES"/>
-        <attribute name="modificationDate" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="modificationDate" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="WindDirectionsCatalog" representedClassName="JHMWindDirectionsCatalog" parentEntity="NamedEntity" syncable="YES">
@@ -28,7 +28,7 @@
     <elements>
         <element name="City" positionX="-63" positionY="-18" width="128" height="163"/>
         <element name="Alert" positionX="423" positionY="-31" width="128" height="88"/>
-        <element name="NamedEntity" positionX="207" positionY="-466" width="216" height="88"/>
+        <element name="NamedEntity" positionX="207" positionY="-466" width="216" height="28"/>
         <element name="WindDirectionsCatalog" positionX="655" positionY="-271" width="263" height="88"/>
     </elements>
 </model>

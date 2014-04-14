@@ -10,6 +10,7 @@
 #import "AGTSimpleCoreDataStack.h"
 #import <CoreData/CoreData.h>
 #import "JHMWindDirectionsCatalog.h"
+#import "JHMCity.h"
 
 @implementation AppDelegate
 
@@ -53,34 +54,25 @@
 #pragma mark - Load Data
 
 -(void) loadData {
-    // Create data
-    
-    // Retrieve the context from the model
-
-//    WindDirectionsCatalog * windCatalog = [WindDirectionsCatalog windDirectionsCatalogWithName:@"N"
-//                                           degrees:[NSNumber numberWithInt:0]
-//                                           
-//                                                                                       context:self.model.context];
-//                                          
-//    
-//
-//    NSLog(@"Log Debug Trace ::: windCatalog : %@", windCatalog);
-
+    JHMCity * newCity = [JHMCity cityWithName:@"CACERES"
+                                longitudeCity:[NSNumber numberWithDouble:-3.1]
+                                 latitudeCity:[NSNumber numberWithDouble:44.1]
+                               temperatureNow:[NSNumber numberWithDouble:12.2]
+                                     speedNow:[NSNumber numberWithDouble:69.69]
+                                  pressureNow:[NSNumber numberWithDouble:1024.24]
+                                      gustNow:[NSNumber numberWithDouble:12.12]
+                                   degreesNow:[NSNumber numberWithDouble:12.12]
+                                      context:self.model.context];
     
     
-    // Assign values to properties with KVC
-//    [catalogWindDirection setValue:@"N" forKeyPath:@"name"];
-//    [catalogWindDirection setValue:[NSDate date] forKeyPath:@"creationDate"];
-//    [catalogWindDirection setValue:[NSDate date] forKeyPath:@"modificationDate"];
-//    [catalogWindDirection setValue:[NSNumber numberWithInt:0]  forKeyPath:@"degrees"];
-
-
-    
-//    NSLog(@"Log Debug Trace ::: catalogWindDirection : %@", catalogWindDirection);
-
-    
+    [self save];
     
 }
 
+-(void) save {
+    [self.model saveWithErrorBlock:^(NSError *error) {
+        NSLog(@"Error saving %s \n\n %@",__func__, error);
+              }];
+}
 
 @end

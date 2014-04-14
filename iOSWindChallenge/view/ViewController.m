@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-//#import "City.h"
+#import "JHMCity.h"
 
 @interface ViewController ()
 
@@ -59,4 +59,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)addCity:(id)sender {
+    
+//    JHMCity * newCity = [JHMCity cityWithName:self.cityNameTextField.text
+//                                longitudeCity:[NSNumber numberWithDouble:-3.1]
+//                                               latitudeCity:[NSNumber numberWithDouble:44.1]
+//                                               temperatureNow:[NSNumber numberWithDouble:12.2]
+//                                               speedNow:[NSNumber numberWithDouble:69.69]
+//                                               pressureNow:[NSNumber numberWithDouble:1024.24]
+//                                               gustNow:[NSNumber numberWithDouble:12.12]
+//                                               degreesNow:45.00
+//                                      context:self.model.context];
+    
+    
+}
 @end

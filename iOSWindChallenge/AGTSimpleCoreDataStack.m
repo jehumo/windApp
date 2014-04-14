@@ -7,7 +7,9 @@
 //
 
 
-@import CoreData; // This way includes framework, only for System Framework
+
+// This way includes framework, only for System Framework
+#import <CoreData/CoreData.h>
 #import "AGTSimpleCoreDataStack.h"
 
 @interface AGTSimpleCoreDataStack ()
