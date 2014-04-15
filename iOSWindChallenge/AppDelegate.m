@@ -18,10 +18,7 @@
 {
     // Create the Instance of the Core Data stack
     
-    self.model = [AGTSimpleCoreDataStack coreDataStackWithModelName:@"Model"];
-    
-    [self loadData];
-    
+//    self.model = [AGTSimpleCoreDataStack coreDataStackWithModelName:@"Model"];
     
     return YES;
 }
@@ -51,28 +48,4 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 }
-#pragma mark - Load Data
-
--(void) loadData {
-    JHMCity * newCity = [JHMCity cityWithName:@"CACERES"
-                                longitudeCity:[NSNumber numberWithDouble:-3.1]
-                                 latitudeCity:[NSNumber numberWithDouble:44.1]
-                               temperatureNow:[NSNumber numberWithDouble:12.2]
-                                     speedNow:[NSNumber numberWithDouble:69.69]
-                                  pressureNow:[NSNumber numberWithDouble:1024.24]
-                                      gustNow:[NSNumber numberWithDouble:12.12]
-                                   degreesNow:[NSNumber numberWithDouble:12.12]
-                                      context:self.model.context];
-    
-    
-    [self save];
-    
-}
-
--(void) save {
-    [self.model saveWithErrorBlock:^(NSError *error) {
-        NSLog(@"Error saving %s \n\n %@",__func__, error);
-              }];
-}
-
 @end
