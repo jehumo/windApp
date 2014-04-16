@@ -6,6 +6,7 @@
 const struct JHMCityAttributes JHMCityAttributes = {
 	.degrees = @"degrees",
 	.gust = @"gust",
+	.idCity = @"idCity",
 	.latitude = @"latitude",
 	.longitude = @"longitude",
 	.pressure = @"pressure",
@@ -46,16 +47,6 @@ const struct JHMCityFetchedProperties JHMCityFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"degreesValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"degrees"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
-	if ([key isEqualToString:@"gustValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"gust"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
 	if ([key isEqualToString:@"latitudeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"latitude"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -68,11 +59,6 @@ const struct JHMCityFetchedProperties JHMCityFetchedProperties = {
 	}
 	if ([key isEqualToString:@"pressureValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"pressure"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
-	if ([key isEqualToString:@"speedValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"speed"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -92,25 +78,6 @@ const struct JHMCityFetchedProperties JHMCityFetchedProperties = {
 
 
 
-- (double)degreesValue {
-	NSNumber *result = [self degrees];
-	return [result doubleValue];
-}
-
-- (void)setDegreesValue:(double)value_ {
-	[self setDegrees:[NSNumber numberWithDouble:value_]];
-}
-
-- (double)primitiveDegreesValue {
-	NSNumber *result = [self primitiveDegrees];
-	return [result doubleValue];
-}
-
-- (void)setPrimitiveDegreesValue:(double)value_ {
-	[self setPrimitiveDegrees:[NSNumber numberWithDouble:value_]];
-}
-
-
 
 
 
@@ -118,23 +85,11 @@ const struct JHMCityFetchedProperties JHMCityFetchedProperties = {
 
 
 
-- (double)gustValue {
-	NSNumber *result = [self gust];
-	return [result doubleValue];
-}
 
-- (void)setGustValue:(double)value_ {
-	[self setGust:[NSNumber numberWithDouble:value_]];
-}
 
-- (double)primitiveGustValue {
-	NSNumber *result = [self primitiveGust];
-	return [result doubleValue];
-}
 
-- (void)setPrimitiveGustValue:(double)value_ {
-	[self setPrimitiveGust:[NSNumber numberWithDouble:value_]];
-}
+@dynamic idCity;
+
 
 
 
@@ -220,25 +175,6 @@ const struct JHMCityFetchedProperties JHMCityFetchedProperties = {
 
 @dynamic speed;
 
-
-
-- (double)speedValue {
-	NSNumber *result = [self speed];
-	return [result doubleValue];
-}
-
-- (void)setSpeedValue:(double)value_ {
-	[self setSpeed:[NSNumber numberWithDouble:value_]];
-}
-
-- (double)primitiveSpeedValue {
-	NSNumber *result = [self primitiveSpeed];
-	return [result doubleValue];
-}
-
-- (void)setPrimitiveSpeedValue:(double)value_ {
-	[self setPrimitiveSpeed:[NSNumber numberWithDouble:value_]];
-}
 
 
 

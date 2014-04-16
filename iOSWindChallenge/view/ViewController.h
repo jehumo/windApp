@@ -23,7 +23,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *cityNameTextField;
 @property (weak, nonatomic) IBOutlet UISearchBar *theSearchBar;
-- (IBAction)addCity:(id)sender;
+
 // Property for the model, to be initialized when the app start
 @property (strong, nonatomic) AGTSimpleCoreDataStack * model;
 

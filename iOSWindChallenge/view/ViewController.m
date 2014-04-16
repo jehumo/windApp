@@ -19,6 +19,7 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "UserHereTrackingAnnotation.h"
 #import "CityAnnotation.h"
+#import "JHMCity.h"
 
 @interface ViewController ()
 
@@ -60,6 +61,8 @@
     [self.navigationController.navigationBar setHidden:YES];
     [self.theSearchBar setHidden:NO];
     [self.theSearchBar setDelegate:self];
+    
+    
 //    [self.viewTableContainer setHidden:NO];
 //    [self.viewMapContainer setHidden:YES];
     
@@ -67,56 +70,46 @@
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     
-    // Init my own location controller and defining this class as the delegate
-//    self.locationController = [[CustomLocationManager alloc]init];
-//    self.locationController.delegate = self;
-//    [self.locationController startStandardUpdates];
-    
-    
     // Setting delegate
     self.mapView.delegate = self;
     
     
-    //[[UIButton appearanceWhenContainedIn:[UISearchBar class], nil] setTitle:@"Cancelar" forState:UIControlStateNormal];
-//    [self.viewTableContainer setHidden:NO];
-//    [self.viewMapContainer setHidden:YES];
-//    if (![self.locationController isLocationAuthoritationEnabled]) {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ajustes de la aplicación"
-//                                                        message:@"Por favor, active la geolocalización en su iPhone"
-//                                                       delegate:nil
-//                                              cancelButtonTitle:@"OK"
-//                                              otherButtonTitles:nil];
-//        [alert show];
-//        
-//    }
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"City"
+                                              inManagedObjectContext:self.model.context];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *fetchedObjects = [self.model.context executeFetchRequest:fetchRequest error:&error];
+    for (JHMCity * favoriteCity in fetchedObjects) {
+        NSLog(@"Name: %@", favoriteCity.name);
+        
+        City * city = [[City alloc] init];
+        city.idCity=favoriteCity.idCity;
+        city.name=favoriteCity.name;
+        PFGeoPoint * geoPoint = [PFGeoPoint geoPointWithLatitude:[favoriteCity.latitude doubleValue]
+                                                       longitude:[favoriteCity.longitude doubleValue]];
+        
+        
+        CityAnnotation * cityReturnedAnnotation = [[CityAnnotation alloc]  initWithCity:city geopoint:geoPoint];
+        
+        cityReturnedAnnotation.title=favoriteCity.name;
+        cityReturnedAnnotation.subtitle=favoriteCity.speed;
+        cityReturnedAnnotation.idCity = favoriteCity.idCity;
+        
+        //cityReturnedAnnotation.cityData = cityReturned;
+        
+        [self.mapView addAnnotation:cityReturnedAnnotation];
+        
+    }
+
 
     
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)addCity:(id)sender {
-
-
-//    JHMCity * newCity = [JHMCity cityWithName:self.cityNameTextField.text
-//                                longitudeCity:[NSNumber numberWithDouble:-3.1]
-//                                 latitudeCity:[NSNumber numberWithDouble:44.1]
-//                               temperatureNow:[NSNumber numberWithDouble:12.2]
-//                                     speedNow:[NSNumber numberWithDouble:69.69]
-//                                  pressureNow:[NSNumber numberWithDouble:1024.24]
-//                                      gustNow:[NSNumber numberWithDouble:12.12]
-//                                   degreesNow:[NSNumber numberWithDouble:12.12]
-//                                      context:self.model.context];
-//    
-//    
-//    [self.model saveWithErrorBlock:^(NSError *error) {
-//        NSLog(@"Error saving %s \n\n %@",__func__, error);
-//    }];
-    
-}
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -196,18 +189,29 @@
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:aCityAnnotation
                                                           reuseIdentifier:identifier];
             
-            annotationView.image = [UIImage imageNamed:@"pin"];
+            annotationView.image = [UIImage imageNamed:@"pin_yellow"];
             
             
             
 
-            // leftCalloutAccessoryView. Image wind rotated
-            UIView *leftCAV = [[UIView alloc] initWithFrame:CGRectMake(0,0,23,23)];
-            //UIImageView * imgViewLeft = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"fav"]];
             
-            UIButton * favoriteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            favoriteButton.frame = CGRectMake(0, 0, 23, 23);
-            [favoriteButton setBackgroundImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+            
+            
+//            UIButton * favoriteButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//            favoriteButton.frame = CGRectMake(0, 0, 23, 23);
+//            [favoriteButton setBackgroundImage:[UIImage imageNamed:@"not_fav_yet"] forState:UIControlStateNormal];
+//            [favoriteButton setBackgroundImage:[UIImage imageNamed:@"fav"] forState:UIControlStateSelected | UIControlStateHighlighted | UIControlEventTouchUpInside];
+//            favoriteButton.tag = [aCityAnnotation.cityData.idCity integerValue];
+            
+            
+//            [favoriteButton addTarget:self
+//                               action:@selector(saveFavorite:)];
+            
+            
+
+//            [favoriteButton addTarget:self action:@selector(buttonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+
+             
             //annotationView.leftCalloutAccessoryView = favoriteButton;
 //            //set point of rotation
 //            imgViewLeft.center = CGPointMake(100.0, 100.0);
@@ -215,49 +219,55 @@
 //            //rotate rect
 //            annotationView.transform = CGAffineTransformMakeRotation([aCityAnnotation.cityData.wind.degrees doubleValue]); //rotation in radians
 //            
-            [leftCAV addSubview  :favoriteButton];
+//            [leftCAV addSubview  :favoriteButton];
 //            //[leftCAV addSubview : yourFirstLabel];
-//            //[leftCAV addSubview : yourSecondLabel];
-            annotationView.leftCalloutAccessoryView = leftCAV;
-            annotationView.canShowCallout = YES;
             
+            
+//            //[leftCAV addSubview : yourSecondLabel];
             
 
+            
+            //Left
+            UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            leftButton.frame = CGRectMake(0, 0, 23, 23);
+            [leftButton setBackgroundImage:[UIImage imageNamed:@"not_fav_yet"] forState:UIControlStateNormal];
+            
+            annotationView.leftCalloutAccessoryView = leftButton;
+            annotationView.leftCalloutAccessoryView.tag =1;
             
             // Right. Button on rightCalloutAccessoryView for segue
             UIButton *weatherButton = [UIButton buttonWithType:UIButtonTypeCustom];
             weatherButton.frame = CGRectMake(0, 0, 88, 23);
             [weatherButton setBackgroundImage:[UIImage imageNamed:@"weather"] forState:UIControlStateNormal];
             annotationView.rightCalloutAccessoryView = weatherButton;
+            annotationView.rightCalloutAccessoryView.tag=2;
         
 
+            annotationView.canShowCallout = YES;
+            
 
             
         }
         return annotationView;
     }
-//    if ([annotation isMemberOfClass:[UserFoundDirectionAnnotation class]])
-//    {
-//        static NSString * const identifier = @"UserFoundDirection";
-//        
-//        MKAnnotationView* annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-//        if (annotationView) {
-//            annotationView.annotation = annotation;
-//        } else{
-//            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation
-//                                                          reuseIdentifier:identifier];
-//        }
-//        
-//        annotationView.image = [UIImage imageNamed:@"map_direction"];
-//        annotationView.canShowCallout = YES;
-//        
-//        return annotationView;
-//    }
-//    
-    
-    
     return nil;
 }
+
+//- (IBAction) buttonTouchUpInside:(id)sender {
+//    // MyOwnButton *buttonClicked = (MyOwnButton *)sender;
+//    //do as you please with buttonClicked.argOne
+//    NSLog(@"botton clickado:: self.selectedCityForecast :: %i", [sender tag]);
+//    
+//    JHMCity * newCity = [JHMCity cityWithIdCity:[NSNumber numberWithInt:[sender tag]] 
+//                                        context:self.model.context];
+//        
+//        
+//        [self.model saveWithErrorBlock:^(NSError *error) {
+//            NSLog(@"Error saving %s \n\n %@",__func__, error);
+//        }];
+//  
+//
+//}
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)annView calloutAccessoryControlTapped:(UIControl *)control
 {
@@ -267,7 +277,38 @@
 
     self.selectedCityForecast = myAnn.cityData;
     
-    [self performSegueWithIdentifier:@"showDetailViewController" sender:self];
+
+    
+    if ([control tag] == 1) {
+        
+        NSLog(@"tap 1");
+        NSLog(@"Log Debug Trace ::: LATITUDE : %@",   myAnn.cityData.coordinate.lat);
+
+        NSLog(@"botton clickado:: self.selectedCityForecast :: %i", [control tag]);
+       
+        JHMCity * newCity = [JHMCity cityWithName:self.selectedCityForecast.name
+                             idCity:self.selectedCityForecast.idCity
+                                    longitudeCity:self.selectedCityForecast.coordinate.lon
+                                     latitudeCity:self.selectedCityForecast.coordinate.lat
+                                   temperatureNow:0
+                                         speedNow:self.selectedCityForecast.wind.speed
+                                      pressureNow:0
+                                          gustNow:0
+                                    degreesNow:self.selectedCityForecast.wind.degrees
+                                          context:self.model.context];
+        
+        
+        [self.model saveWithErrorBlock:^(NSError *error) {
+            NSLog(@"Error saving %s \n\n %@",__func__, error);
+        }];
+        
+        [SVProgressHUD showSuccessWithStatus:@"New Favorite Added"];
+        
+    } else if ([control tag] == 2) {
+        // "Right Accessory Button Tapped
+        [self performSegueWithIdentifier:@"showDetailViewController" sender:self];
+
+    }
     
 }
 - (void)zoomToLocation:(CLLocation *)location radius:(CGFloat)radius {

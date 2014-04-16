@@ -7,6 +7,7 @@
 extern const struct JHMCityAttributes {
 	__unsafe_unretained NSString *degrees;
 	__unsafe_unretained NSString *gust;
+	__unsafe_unretained NSString *idCity;
 	__unsafe_unretained NSString *latitude;
 	__unsafe_unretained NSString *longitude;
 	__unsafe_unretained NSString *pressure;
@@ -31,6 +32,7 @@ extern const struct JHMCityFetchedProperties {
 
 
 
+
 @interface JHMCityID : NSManagedObjectID {}
 @end
 
@@ -44,13 +46,9 @@ extern const struct JHMCityFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber* degrees;
+@property (nonatomic, strong) NSString* degrees;
 
 
-
-@property double degreesValue;
-- (double)degreesValue;
-- (void)setDegreesValue:(double)value_;
 
 //- (BOOL)validateDegrees:(id*)value_ error:(NSError**)error_;
 
@@ -58,15 +56,21 @@ extern const struct JHMCityFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber* gust;
+@property (nonatomic, strong) NSString* gust;
 
 
-
-@property double gustValue;
-- (double)gustValue;
-- (void)setGustValue:(double)value_;
 
 //- (BOOL)validateGust:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* idCity;
+
+
+
+//- (BOOL)validateIdCity:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -114,13 +118,9 @@ extern const struct JHMCityFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber* speed;
+@property (nonatomic, strong) NSString* speed;
 
 
-
-@property double speedValue;
-- (double)speedValue;
-- (void)setSpeedValue:(double)value_;
 
 //- (BOOL)validateSpeed:(id*)value_ error:(NSError**)error_;
 
@@ -159,20 +159,20 @@ extern const struct JHMCityFetchedProperties {
 @interface _JHMCity (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSNumber*)primitiveDegrees;
-- (void)setPrimitiveDegrees:(NSNumber*)value;
-
-- (double)primitiveDegreesValue;
-- (void)setPrimitiveDegreesValue:(double)value_;
+- (NSString*)primitiveDegrees;
+- (void)setPrimitiveDegrees:(NSString*)value;
 
 
 
 
-- (NSNumber*)primitiveGust;
-- (void)setPrimitiveGust:(NSNumber*)value;
+- (NSString*)primitiveGust;
+- (void)setPrimitiveGust:(NSString*)value;
 
-- (double)primitiveGustValue;
-- (void)setPrimitiveGustValue:(double)value_;
+
+
+
+- (NSString*)primitiveIdCity;
+- (void)setPrimitiveIdCity:(NSString*)value;
 
 
 
@@ -204,11 +204,8 @@ extern const struct JHMCityFetchedProperties {
 
 
 
-- (NSNumber*)primitiveSpeed;
-- (void)setPrimitiveSpeed:(NSNumber*)value;
-
-- (double)primitiveSpeedValue;
-- (void)setPrimitiveSpeedValue:(double)value_;
+- (NSString*)primitiveSpeed;
+- (void)setPrimitiveSpeed:(NSString*)value;
 
 
 

@@ -11,6 +11,7 @@
 @implementation JHMCity
 
 +(instancetype) cityWithName:(NSString *) aName
+                      idCity:(NSString *)idCity
                longitudeCity:(NSNumber *) aLongitude
                 latitudeCity:(NSNumber *) aLatitude
               temperatureNow:(NSNumber *) currentTemperature
@@ -25,6 +26,7 @@
     
     
     newFavoriteCity.name = aName;
+    newFavoriteCity.idCity = idCity;
     newFavoriteCity.latitude=aLatitude;
     newFavoriteCity.longitude=aLongitude;
     newFavoriteCity.temperature = currentTemperature;
@@ -37,5 +39,20 @@
     return newFavoriteCity;
                                  
 }
+
++(instancetype) cityWithIdCity:( NSNumber *) idCity
+                       context:(NSManagedObjectContext *) aContext {
+    
+    JHMCity * newFavoriteCity = [NSEntityDescription insertNewObjectForEntityForName:[JHMCity entityName]
+                                                              inManagedObjectContext:aContext];
+    
+    
+    newFavoriteCity.idCity = idCity;
+    
+    newFavoriteCity.creationDate = [NSDate date];
+    return newFavoriteCity;
+    
+}
+
 
 @end
