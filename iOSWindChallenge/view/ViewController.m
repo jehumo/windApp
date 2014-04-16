@@ -23,7 +23,7 @@
 @interface ViewController ()
 
 
-@property (nonatomic,strong) City * selectedCity;
+@property (nonatomic,strong) City * selectedCityForecast;
 @property (nonatomic,strong)  CLLocation * currentLocation;
 @property (nonatomic) CLLocationCoordinate2D userLocation;
 @property (nonatomic) CLLocationDistance distanceToFarestCity;
@@ -195,26 +195,43 @@
         else {
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:aCityAnnotation
                                                           reuseIdentifier:identifier];
+            
             annotationView.image = [UIImage imageNamed:@"pin"];
+            
+            
+            
+
+            // leftCalloutAccessoryView. Image wind rotated
+            UIView *leftCAV = [[UIView alloc] initWithFrame:CGRectMake(0,0,23,23)];
+            //UIImageView * imgViewLeft = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"fav"]];
+            
+            UIButton * favoriteButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            favoriteButton.frame = CGRectMake(0, 0, 23, 23);
+            [favoriteButton setBackgroundImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+            //annotationView.leftCalloutAccessoryView = favoriteButton;
+//            //set point of rotation
+//            imgViewLeft.center = CGPointMake(100.0, 100.0);
+//            
+//            //rotate rect
+//            annotationView.transform = CGAffineTransformMakeRotation([aCityAnnotation.cityData.wind.degrees doubleValue]); //rotation in radians
+//            
+            [leftCAV addSubview  :favoriteButton];
+//            //[leftCAV addSubview : yourFirstLabel];
+//            //[leftCAV addSubview : yourSecondLabel];
+            annotationView.leftCalloutAccessoryView = leftCAV;
             annotationView.canShowCallout = YES;
             
             
-//            if (aCityAnnotation.isOriginalVersion) {
-//                // Left. Image and two labels
-//                UIView *leftCAV = [[UIView alloc] initWithFrame:CGRectMake(0,0,23,23)];
-//                
-//                UIImageView * imgViewLeft = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_vo"]];
-//                [leftCAV addSubview : imgViewLeft];
-//                //[leftCAV addSubview : yourFirstLabel];
-//                //[leftCAV addSubview : yourSecondLabel];
-//                annotationView.leftCalloutAccessoryView = imgViewLeft;
-//            }
+
             
-            // Right. Button
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            button.frame = CGRectMake(0, 0, 88, 23);
-            [button setBackgroundImage:[UIImage imageNamed:@"btn_cartelera"] forState:UIControlStateNormal];
-            annotationView.rightCalloutAccessoryView = button;
+            // Right. Button on rightCalloutAccessoryView for segue
+            UIButton *weatherButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            weatherButton.frame = CGRectMake(0, 0, 88, 23);
+            [weatherButton setBackgroundImage:[UIImage imageNamed:@"weather"] forState:UIControlStateNormal];
+            annotationView.rightCalloutAccessoryView = weatherButton;
+        
+
+
             
         }
         return annotationView;
@@ -242,6 +259,17 @@
     return nil;
 }
 
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)annView calloutAccessoryControlTapped:(UIControl *)control
+{
+    NSLog(@"calloutAccessoryControlTapped: annotation = %@", annView.annotation);
+    CityAnnotation * myAnn = (CityAnnotation *) annView.annotation;
+    NSLog(@"Log Debug Trace ::: cityData.idCity : %@",   myAnn.cityData.idCity);
+
+    self.selectedCityForecast = myAnn.cityData;
+    
+    [self performSegueWithIdentifier:@"showDetailViewController" sender:self];
+    
+}
 - (void)zoomToLocation:(CLLocation *)location radius:(CGFloat)radius {
     NSLog(@"Zoomming to this radius %f",radius);
     
@@ -280,7 +308,7 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    [searchBar setText:@"Londres"];
+    [searchBar setText:@"Cadiz"];
     [searchBar setShowsCancelButton:YES animated:YES];
 }
 
@@ -316,23 +344,48 @@
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/data/2.5/find"
                                                parameters:queryParams
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      
                                                       [SVProgressHUD dismiss];
                                                       self.cities = mappingResult.array;
-                                                      [SVProgressHUD dismiss];
-
+                                                      
                                                       if (self.cities.count >0 ) {
                                                           [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Found %@",self.theSearchBar.text]];
                                                           
- //                                                       [self.tableView setHidden:NO];
-                                                          //[self.mapView setHidden:YES];
-                                                          City * resultCity = (City *)[self.cities objectAtIndex:0];
+                                                          City * cityReturned = (City *) [self.cities objectAtIndex:0];
+                                                          CLLocation * cityReturnedLocation = [[CLLocation alloc] initWithLatitude:[cityReturned.coordinate.lat
+ doubleValue]
+                                                                                                                         longitude:[cityReturned.coordinate.lon doubleValue]];
                                                           
                                                           NSLog(@"Exito!!!!!!");
-                                                          NSLog(@"Log Debug Trace ::: resultCity.name : %@", resultCity.name);
-                                                          NSLog(@"Log Debug Trace ::: rresultCity.coordinate.lat: %@", resultCity.coordinate.lat);
-                                                          NSLog(@"Log Debug Trace ::: resultCity.coordinate.lon: %@", resultCity.coordinate.lon);
+                                                          NSLog(@"Log Debug Trace ::: cityReturned : %@", cityReturned.name);
+                                                          CLLocation * hereLocation = [[CLLocation alloc] initWithLatitude:self.currentLocation.coordinate.latitude
+                                                                                                                        longitude:self.currentLocation.coordinate.longitude];
                                                           
-                                                          [self.tableView reloadData];
+                                                          
+                                                          PFGeoPoint * geoPoint = [PFGeoPoint geoPointWithLatitude:[cityReturned.coordinate.lat doubleValue]
+                                                                                                         longitude:[cityReturned.coordinate.lon doubleValue]];
+                                                          
+//                                                          CityAnnotation * currentCityAnnotation = [[CityAnnotation alloc] initWithUserGeoPoint:geoPoint];
+                                                          
+                                                          
+                                                          
+                                                          cityReturned.distance = [self.currentLocation distanceFromLocation:cityReturnedLocation];
+                                                          
+
+                                                          CityAnnotation * cityReturnedAnnotation = [[CityAnnotation alloc]  initWithCity:cityReturned geopoint:geoPoint];
+                                                          
+                                                          cityReturnedAnnotation.title=cityReturned.name;
+                                                          cityReturnedAnnotation.subtitle=cityReturned.wind.speed;
+                                                          cityReturnedAnnotation.idCity = cityReturned.idCity;
+
+                                                          //cityReturnedAnnotation.cityData = cityReturned;
+                                                          
+                                                          [self.mapView addAnnotation:cityReturnedAnnotation];
+                                                          
+                                                          
+                                                          [self zoomToLocation:hereLocation radius:cityReturned.distance];
+                                                          
+                                                          //[self.tableView reloadData];
 
                                                       } else {
                                                           //[self.tableView setHidden:NO];
@@ -440,32 +493,32 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    CityCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CityCell"];
-    self.selectedCity= [self.cities objectAtIndex:indexPath.row];
+//    CityCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CityCell"];
+//    self.selectedCity= [self.cities objectAtIndex:indexPath.row];
     
 //    [self.viewTableContainer setHidden:YES];
 //    [self.viewMapContainer setHidden:NO];
 
     
-    CLLocation * currentCityLocation = [[CLLocation alloc] initWithLatitude:[self.selectedCity.coordinate.lat doubleValue]
-                                        longitude:[self.selectedCity.coordinate.lon doubleValue]];
+ //   CLLocation * currentCityLocation = [[CLLocation alloc] initWithLatitude:[self.selectedCity.coordinate.lat doubleValue]
+ //                                       longitude:[self.selectedCity.coordinate.lon doubleValue]];
     
     
-    PFGeoPoint * geoPoint = [PFGeoPoint geoPointWithLatitude:[self.selectedCity.coordinate.lat doubleValue]
-                                                   longitude:[self.selectedCity.coordinate.lon doubleValue]];
-    CityAnnotation * currentCityAnnotation = [[CityAnnotation alloc] initWithUserGeoPoint:geoPoint];
+ //   PFGeoPoint * geoPoint = [PFGeoPoint geoPointWithLatitude:[self.selectedCity.coordinate.lat doubleValue]
+ //                                                  longitude:[self.selectedCity.coordinate.lon doubleValue]];
+ //   CityAnnotation * currentCityAnnotation = [[CityAnnotation alloc] initWithUserGeoPoint:geoPoint];
     
     
     
-    self.selectedCity.distance = [self.currentLocation distanceFromLocation:currentCityLocation];
+//    self.selectedCity.distance = [self.currentLocation distanceFromLocation:currentCityLocation];
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.mapView addAnnotation:currentCityLocation];
-        [self zoomToLocation:self.currentLocation radius:self.selectedCity.distance];
-    });
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.mapView addAnnotation:currentCityLocation];
+//        [self zoomToLocation:self.currentLocation radius:self.selectedCity.distance];
+//    });
     
     
-    //[self performSegueWithIdentifier:@"showDetailViewController" sender:self];
+//    [self performSegueWithIdentifier:@"showDetailViewController" sender:self];
     
 }
 
@@ -480,7 +533,7 @@
     
     if ([[segue identifier] isEqualToString:@"showDetailViewController"]) {
         DetailWeatherCityViewController * detailViewController = (DetailWeatherCityViewController *) segue.destinationViewController;
-        detailViewController.selectedCity   = self.selectedCity;
+        detailViewController.selectedCity   = self.selectedCityForecast;
     }
 }
 

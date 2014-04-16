@@ -26,15 +26,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    NSLog(@"Log Debug Trace ::: self.selectedCity.name : %@", self.selectedCity.name);
-
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
     [self.navigationController.navigationBar setHidden:NO];
+    [self.navigationController setTitle:[NSString stringWithFormat:@"%@ forecast",self.selectedCity.name]];
+    NSLog(@"Log Debug Trace ::: self.selectedCity.name : %@", self.selectedCity.name);
+    NSLog(@"Log Debug Trace :::     self.selectedCity.idCity : %@",     self.selectedCity.idCity);
 }
 - (void)didReceiveMemoryWarning
 {

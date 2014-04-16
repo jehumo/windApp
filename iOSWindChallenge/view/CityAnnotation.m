@@ -11,4 +11,21 @@
 
 @implementation CityAnnotation
 
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+    }
+    return self;
+}
+- (id) initWithCity:(City  *) aCity  geopoint:(PFGeoPoint *) aGeopoint;{
+    
+    self = [super initWithUserGeoPoint:aGeopoint];
+    if (self) {
+        self.cityData = aCity;
+    }
+    return self;
+}
+
 @end

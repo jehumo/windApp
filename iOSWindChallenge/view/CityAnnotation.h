@@ -8,8 +8,10 @@
 
 #import <MapKit/MapKit.h>
 #import "UserTrackingAnnotation.h"
+#import "City.h"
 
 @interface CityAnnotation : UserTrackingAnnotation
-
-
+- (id) initWithCity:(City  *) aCity  geopoint:(PFGeoPoint *) aGeopoint;
+@property (nonatomic, strong) City * cityData;
+@property (copy,nonatomic) NSString * idCity;
 @end
