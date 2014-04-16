@@ -7,7 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "City.h"
 
 @interface DetailWeatherCityViewController : ViewController
+
+@property (nonatomic, strong) City * selectedCity;
 
 @end

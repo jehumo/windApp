@@ -10,6 +10,6 @@
 
 @interface Coordinate : NSObject
 //list.coord
-@property (nonatomic, strong) NSString * lon;
-@property (nonatomic, strong) NSString * lat;
+@property (nonatomic, strong) NSNumber * lon;
+@property (nonatomic, strong) NSNumber * lat;
 @end

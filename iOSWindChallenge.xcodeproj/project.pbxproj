@@ -9,10 +9,16 @@
 /* Begin PBXBuildFile section */
 		71773BC318FC18A4009136DE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71773BC218FC18A4009136DE /* CoreData.framework */; };
 		C33BD83CD2474C59BF1D8988 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA261B015A3545C3867DFDD4 /* libPods.a */; };
+		CE527A7F18FDB63D0046B7B3 /* CityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE527A7E18FDB63D0046B7B3 /* CityCell.m */; };
+		CE527A8118FDD4530046B7B3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE527A8018FDD4530046B7B3 /* CoreLocation.framework */; };
+		CE84454018FE5CEC001C4C2E /* UserHereTrackingAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE84453F18FE5CEC001C4C2E /* UserHereTrackingAnnotation.m */; };
+		CE84454418FE5E4C001C4C2E /* CityAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE84454318FE5E4C001C4C2E /* CityAnnotation.m */; };
+		CE84454718FE62D3001C4C2E /* UserTrackingAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE84454618FE62D3001C4C2E /* UserTrackingAnnotation.m */; };
 		CE9F328C18FD7EB0007CC21E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F328B18FD7EB0007CC21E /* City.m */; };
 		CE9F328F18FD8FB6007CC21E /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F328E18FD8FB6007CC21E /* Coordinate.m */; };
 		CE9F329218FD9652007CC21E /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F329118FD9652007CC21E /* Weather.m */; };
 		CE9F329518FDA08A007CC21E /* Wind.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F329418FDA08A007CC21E /* Wind.m */; };
+		CE9F329718FDAE97007CC21E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9F329618FDAE97007CC21E /* MapKit.framework */; };
 		CEA929E218FA9C97001673B1 /* AGTSimpleCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */; };
 		CEA929E518FAA2DE001673B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEA929E318FAA2DE001673B1 /* Model.xcdatamodeld */; };
 		CEA92A4C18FAF1D0001673B1 /* _JHMAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA92A3D18FAF1D0001673B1 /* _JHMAlert.m */; };
@@ -55,6 +61,15 @@
 		71773BC218FC18A4009136DE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8F2402166A36415CAE25014E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		AA261B015A3545C3867DFDD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE527A7D18FDB63D0046B7B3 /* CityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityCell.h; sourceTree = "<group>"; };
+		CE527A7E18FDB63D0046B7B3 /* CityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityCell.m; sourceTree = "<group>"; };
+		CE527A8018FDD4530046B7B3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CE84453E18FE5CEC001C4C2E /* UserHereTrackingAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHereTrackingAnnotation.h; sourceTree = "<group>"; };
+		CE84453F18FE5CEC001C4C2E /* UserHereTrackingAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHereTrackingAnnotation.m; sourceTree = "<group>"; };
+		CE84454218FE5E4C001C4C2E /* CityAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityAnnotation.h; sourceTree = "<group>"; };
+		CE84454318FE5E4C001C4C2E /* CityAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityAnnotation.m; sourceTree = "<group>"; };
+		CE84454518FE62D3001C4C2E /* UserTrackingAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTrackingAnnotation.h; sourceTree = "<group>"; };
+		CE84454618FE62D3001C4C2E /* UserTrackingAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTrackingAnnotation.m; sourceTree = "<group>"; };
 		CE9F328A18FD7EB0007CC21E /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = model/City.h; sourceTree = "<group>"; };
 		CE9F328B18FD7EB0007CC21E /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = City.m; path = model/City.m; sourceTree = "<group>"; };
 		CE9F328D18FD8FB6007CC21E /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coordinate.h; path = model/Coordinate.h; sourceTree = "<group>"; };
@@ -63,6 +78,7 @@
 		CE9F329118FD9652007CC21E /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Weather.m; path = model/Weather.m; sourceTree = "<group>"; };
 		CE9F329318FDA08A007CC21E /* Wind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wind.h; sourceTree = "<group>"; };
 		CE9F329418FDA08A007CC21E /* Wind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wind.m; sourceTree = "<group>"; };
+		CE9F329618FDAE97007CC21E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CEA929E018FA9C97001673B1 /* AGTSimpleCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTSimpleCoreDataStack.h; sourceTree = "<group>"; };
 		CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTSimpleCoreDataStack.m; sourceTree = "<group>"; };
 		CEA929E418FAA2DE001673B1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -111,6 +127,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE527A8118FDD4530046B7B3 /* CoreLocation.framework in Frameworks */,
+				CE9F329718FDAE97007CC21E /* MapKit.framework in Frameworks */,
 				71773BC318FC18A4009136DE /* CoreData.framework in Frameworks */,
 				CEB76DEA18F9A9B0007D8421 /* CoreGraphics.framework in Frameworks */,
 				CEB76DEC18F9A9B0007D8421 /* UIKit.framework in Frameworks */,
@@ -132,6 +150,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE84454118FE5CF1001C4C2E /* Annotation Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE84453E18FE5CEC001C4C2E /* UserHereTrackingAnnotation.h */,
+				CE84453F18FE5CEC001C4C2E /* UserHereTrackingAnnotation.m */,
+				CE84454218FE5E4C001C4C2E /* CityAnnotation.h */,
+				CE84454318FE5E4C001C4C2E /* CityAnnotation.m */,
+				CE84454518FE62D3001C4C2E /* UserTrackingAnnotation.h */,
+				CE84454618FE62D3001C4C2E /* UserTrackingAnnotation.m */,
+			);
+			name = "Annotation Views";
+			sourceTree = "<group>";
+		};
 		CEB76DDB18F9A9AF007D8421 = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +186,8 @@
 		CEB76DE618F9A9AF007D8421 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE527A8018FDD4530046B7B3 /* CoreLocation.framework */,
+				CE9F329618FDAE97007CC21E /* MapKit.framework */,
 				71773BC218FC18A4009136DE /* CoreData.framework */,
 				CEB76DE718F9A9AF007D8421 /* Foundation.framework */,
 				CEB76DE918F9A9B0007D8421 /* CoreGraphics.framework */,
@@ -168,11 +201,11 @@
 		CEB76DED18F9A9B0007D8421 /* iOSWindChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				CEB76DF918F9A9B0007D8421 /* Main_iPhone.storyboard */,
 				CEB76E2418F9B09C007D8421 /* Controllers */,
 				CEB76E1F18F9AFF0007D8421 /* Model */,
 				CEB76DF618F9A9B0007D8421 /* AppDelegate.h */,
 				CEB76DF718F9A9B0007D8421 /* AppDelegate.m */,
-				CEB76DF918F9A9B0007D8421 /* Main_iPhone.storyboard */,
 				CEB76DFC18F9A9B0007D8421 /* Main_iPad.storyboard */,
 				CEB76E2018F9B04B007D8421 /* View */,
 				CEB76E0218F9A9B0007D8421 /* Images.xcassets */,
@@ -247,10 +280,13 @@
 		CEB76E2018F9B04B007D8421 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE527A7D18FDB63D0046B7B3 /* CityCell.h */,
+				CE527A7E18FDB63D0046B7B3 /* CityCell.m */,
 				CEB76E2518F9B5A9007D8421 /* DetailWeatherCityViewController.h */,
 				CEB76E2618F9B5A9007D8421 /* DetailWeatherCityViewController.m */,
 				CEB76E2118F9B087007D8421 /* ViewController.h */,
 				CEB76E2218F9B087007D8421 /* ViewController.m */,
+				CE84454118FE5CF1001C4C2E /* Annotation Views */,
 			);
 			name = View;
 			path = view;
@@ -400,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE527A7F18FDB63D0046B7B3 /* CityCell.m in Sources */,
 				CEA92A4C18FAF1D0001673B1 /* _JHMAlert.m in Sources */,
 				CEB76DF818F9A9B0007D8421 /* AppDelegate.m in Sources */,
 				CEA929E218FA9C97001673B1 /* AGTSimpleCoreDataStack.m in Sources */,
@@ -409,12 +446,15 @@
 				CE9F328C18FD7EB0007CC21E /* City.m in Sources */,
 				CEA929E518FAA2DE001673B1 /* Model.xcdatamodeld in Sources */,
 				CEA92A5018FAF1D0001673B1 /* JHMAlert.m in Sources */,
+				CE84454718FE62D3001C4C2E /* UserTrackingAnnotation.m in Sources */,
 				CEA92A4F18FAF1D0001673B1 /* _JHMWindDirectionsCatalog.m in Sources */,
+				CE84454418FE5E4C001C4C2E /* CityAnnotation.m in Sources */,
 				CEA92A4D18FAF1D0001673B1 /* _JHMCity.m in Sources */,
 				CEA92A5118FAF1D0001673B1 /* JHMCity.m in Sources */,
 				CEB76E2718F9B5A9007D8421 /* DetailWeatherCityViewController.m in Sources */,
 				CE9F329518FDA08A007CC21E /* Wind.m in Sources */,
 				CE9F328F18FD8FB6007CC21E /* Coordinate.m in Sources */,
+				CE84454018FE5CEC001C4C2E /* UserHereTrackingAnnotation.m in Sources */,
 				CEB76E2318F9B087007D8421 /* ViewController.m in Sources */,
 				CEB76DF418F9A9B0007D8421 /* main.m in Sources */,
 				CEA92A5218FAF1D0001673B1 /* JHMNamedEntity.m in Sources */,
@@ -559,6 +599,7 @@
 				INFOPLIST_FILE = "iOSWindChallenge/iOSWindChallenge-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -575,6 +616,7 @@
 				INFOPLIST_FILE = "iOSWindChallenge/iOSWindChallenge-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

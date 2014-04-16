@@ -17,7 +17,7 @@
 //list.main
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, strong) NSString * idCity;
-@property (nonatomic, strong) NSNumber * distance;
+@property (nonatomic) CLLocationDistance distance;
 @property (nonatomic, strong) Coordinate * coordinate;
 @property (nonatomic, strong) Weather * weather;
 @property (nonatomic, strong) Wind * wind;
