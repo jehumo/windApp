@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     
+    // Enable or not the posibility of creating Alerts, only previous Cites saved as favorites will enable the Botton to set the alerts
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"City"
                                               inManagedObjectContext:self.model.context];
@@ -42,15 +43,14 @@
     NSArray *fetchedObjects = [self.model.context executeFetchRequest:fetchRequest error:&error];
     
     if ((fetchedObjects == nil) || ([fetchedObjects count] == 0)) {
-        
+        // Not enable
         [self.configureAlertsButton setEnabled:NO];
         
     } else {
+        // Enable
         [self.configureAlertsButton setEnabled:YES];
-        
     }
     
-
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -61,11 +61,8 @@
     
     [self.navigationController.navigationBar setHidden:NO];
     
-    [self setTitle:[NSString stringWithFormat:@"Wind prediction for %@", self.selectedCity.name]];
     [self loadWindPredictions ];
 
-    NSLog(@"Log Debug Trace ::: self.selectedCity.name : %@", self.selectedCity.name);
-    NSLog(@"Log Debug Trace :::     self.selectedCity.idCity : %@",     self.selectedCity.idCity);
 }
 - (void)didReceiveMemoryWarning
 {
@@ -95,7 +92,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    // Display cell, one cell per prediction received
     WindPredictionCell  *cellWindPrediction = [tableView dequeueReusableCellWithIdentifier:@"WindPredictionCell"];
     Wind * windPrediction = [self.windPredictions objectAtIndex:indexPath.row];
 
@@ -115,10 +112,8 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd "];
     
-    cellWindPrediction.theTitle.text=[NSString stringWithFormat:@"%@  Speed %@",[dateFormatter stringFromDate:epochNSDate], windPrediction.speed];
+    cellWindPrediction.theTitle.text=[NSString stringWithFormat:@"%@    Speed %@",[dateFormatter stringFromDate:epochNSDate], windPrediction.speed];
 
-    
-    
     return cellWindPrediction;
 }
 
@@ -127,15 +122,12 @@
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
     // Allocate a reachability object
     if([reach isReachable]) {
-        
-
-        
-        
+        // Load the query
+        // Searchingn for an specific city with idCity
         NSDictionary *queryParams = @{
-                                      @"id" : @"524901"
+                                      @"id" : self.selectedCity.idCity
                                       };
         [SVProgressHUD show];
-        
         
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/data/2.5/forecast/daily"
                                                parameters:queryParams
@@ -147,7 +139,11 @@
                                                       
                                                       if (self.windPredictions.count >0 ) {
                                                           [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Found %i predictions",self.windPredictions.count ]];
+                                                          dispatch_async(dispatch_get_main_queue(), ^{
                                                             [self.tableView reloadData];
+                                                          });
+
+
                                                           
                                                       }
                                                       else {

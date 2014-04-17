@@ -118,24 +118,17 @@
     self.currentLocation  = [locations lastObject];
     PFGeoPoint * aPFGeoPoint = [PFGeoPoint geoPointWithLatitude:self.currentLocation.coordinate.latitude
                                                       longitude:self.currentLocation.coordinate.longitude];
-    
-    
     UserHereTrackingAnnotation * userHereDirectionAnnotation = [[UserHereTrackingAnnotation alloc]initWithUserGeoPoint:aPFGeoPoint];
     userHereDirectionAnnotation.title = @"You are here";
-    
-    //CLLocationDistance distanceFromFoundPlace = [self.foundLocation distanceFromLocation:self.currentLocation];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
         [self.mapView addAnnotation:userHereDirectionAnnotation];
-        
         [self locateMe:self];
     });
     
-    
     [self.locationManager stopUpdatingLocation];
-
-    
+  
 }
 
 #pragma mark - mapkit
@@ -217,14 +210,8 @@
 
     self.selectedCityForecast = myAnn.cityData;
     
-
-    
     if ([control tag] == 1) {
-        
-        NSLog(@"tap 1");
-        NSLog(@"Log Debug Trace ::: LATITUDE : %@",   myAnn.cityData.coordinate.lat);
-
-        NSLog(@"botton clickado:: self.selectedCityForecast :: %i", [control tag]);
+        // Left side touched. Let´s save the city into Cora Data Fav Cities
        
         JHMCity * newCity = [JHMCity cityWithName:self.selectedCityForecast.name
                              idCity:self.selectedCityForecast.idCity
@@ -337,9 +324,6 @@
                                                           PFGeoPoint * geoPoint = [PFGeoPoint geoPointWithLatitude:[cityReturned.coordinate.lat doubleValue]
                                                                                                          longitude:[cityReturned.coordinate.lon doubleValue]];
                                                           
-//                                                          CityAnnotation * currentCityAnnotation = [[CityAnnotation alloc] initWithUserGeoPoint:geoPoint];
-                                                          
-                                                          
                                                           
                                                           cityReturned.distance = [self.currentLocation distanceFromLocation:cityReturnedLocation];
                                                           
@@ -349,18 +333,11 @@
                                                           cityReturnedAnnotation.title=cityReturned.name;
                                                           cityReturnedAnnotation.subtitle=cityReturned.wind.speed;
                                                           cityReturnedAnnotation.idCity = cityReturned.idCity;
-
-                                                          //cityReturnedAnnotation.cityData = cityReturned;
                                                           
                                                           [self.mapView addAnnotation:cityReturnedAnnotation];
-                                                          
-                                                          
                                                           [self zoomToLocation:hereLocation radius:cityReturned.distance];
-                                                          
-                                                          //[self.tableView reloadData];
 
                                                       } else {
-                                                          //[self.tableView setHidden:NO];
                                                           dispatch_async(dispatch_get_main_queue(), ^{
                                                               [SVProgressHUD showErrorWithStatus:
                                                                [NSString stringWithFormat:

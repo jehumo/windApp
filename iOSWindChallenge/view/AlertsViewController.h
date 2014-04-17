@@ -11,8 +11,6 @@
 #import "AGTSimpleCoreDataStack.h"
 
 @interface AlertsViewController : UITableViewController
-
-
 @property (nonatomic, strong) City * selectedCity;
 @property (strong, nonatomic) AGTSimpleCoreDataStack * model;
 

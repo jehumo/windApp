@@ -39,6 +39,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - IBActions
 - (IBAction)minSliderChanged:(id)sender {
     
     NSInteger val = lround(self.minSelector.value);
@@ -69,9 +70,7 @@
 
 - (IBAction)saveAlert:(id)sender {
     
-    // Validations and save
-    
-    
+    // Validations and save into Core Data
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"City"
@@ -112,14 +111,6 @@
 
     }
     
-
-    
-    
-    
-    
-    
-    
-
 }
 
 

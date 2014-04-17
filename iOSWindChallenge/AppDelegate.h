@@ -15,7 +15,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-// Property for the model, to be initialized when the app start
+// Property for the model
 @property (strong, nonatomic) AGTSimpleCoreDataStack * model;
 
 @end

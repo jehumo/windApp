@@ -77,19 +77,7 @@
     
     [objectManager addResponseDescriptor:responseDescriptor];
     
-    
-    
-    // setup object mappings
-    // 1. Wind Mapping
-//    RKObjectMapping * windPredictionsMapping = [RKObjectMapping mappingForClass:[Wind class]];
-//    [windMapping addAttributeMappingsFromDictionary:@{
-//                                                      @"speed":@"speed",
-//                                                      @"deg":@"degrees",
-//                                                      @"dt":@"dt"
-//                                                      }];
-    
-    // register mappings with the provider using a response descriptor
-    // api.openweathermap.org/data/2.5/forecast/daily?id=524901&cnt=15
+
     RKResponseDescriptor *responseDescriptorForecast = [RKResponseDescriptor responseDescriptorWithMapping:windPredictionsMapping
                                                                                                     method:RKRequestMethodGET
                                                                                                pathPattern:@"data/2.5/forecast/daily"

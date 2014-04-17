@@ -250,6 +250,47 @@
 			name = Fixtures;
 			sourceTree = "<group>";
 		};
+		CEADAD561900053700D51D06 /* Objects Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE9F328A18FD7EB0007CC21E /* City.h */,
+				CE9F328B18FD7EB0007CC21E /* City.m */,
+				CE9F328D18FD8FB6007CC21E /* Coordinate.h */,
+				CE9F328E18FD8FB6007CC21E /* Coordinate.m */,
+				CE9F329018FD9652007CC21E /* Weather.h */,
+				CE9F329118FD9652007CC21E /* Weather.m */,
+				CE9F329318FDA08A007CC21E /* Wind.h */,
+				CE9F329418FDA08A007CC21E /* Wind.m */,
+			);
+			name = "Objects Model";
+			sourceTree = "<group>";
+		};
+		CEADAD571900054A00D51D06 /* Core Data  */ = {
+			isa = PBXGroup;
+			children = (
+				CEA929E318FAA2DE001673B1 /* Model.xcdatamodeld */,
+				CEA929E018FA9C97001673B1 /* AGTSimpleCoreDataStack.h */,
+				CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */,
+				CEA92A3C18FAF1D0001673B1 /* _JHMAlert.h */,
+				CEA92A3D18FAF1D0001673B1 /* _JHMAlert.m */,
+				CEA92A3E18FAF1D0001673B1 /* _JHMCity.h */,
+				CEA92A3F18FAF1D0001673B1 /* _JHMCity.m */,
+				CEA92A4018FAF1D0001673B1 /* _JHMNamedEntity.h */,
+				CEA92A4118FAF1D0001673B1 /* _JHMNamedEntity.m */,
+				CEA92A4218FAF1D0001673B1 /* _JHMWindDirectionsCatalog.h */,
+				CEA92A4318FAF1D0001673B1 /* _JHMWindDirectionsCatalog.m */,
+				CEA92A4418FAF1D0001673B1 /* JHMAlert.h */,
+				CEA92A4518FAF1D0001673B1 /* JHMAlert.m */,
+				CEA92A4618FAF1D0001673B1 /* JHMCity.h */,
+				CEA92A4718FAF1D0001673B1 /* JHMCity.m */,
+				CEA92A4818FAF1D0001673B1 /* JHMNamedEntity.h */,
+				CEA92A4918FAF1D0001673B1 /* JHMNamedEntity.m */,
+				CEA92A4A18FAF1D0001673B1 /* JHMWindDirectionsCatalog.h */,
+				CEA92A4B18FAF1D0001673B1 /* JHMWindDirectionsCatalog.m */,
+			);
+			name = "Core Data ";
+			sourceTree = "<group>";
+		};
 		CEB76DDB18F9A9AF007D8421 = {
 			isa = PBXGroup;
 			children = (
@@ -335,33 +376,8 @@
 		CEB76E1F18F9AFF0007D8421 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CEA929E318FAA2DE001673B1 /* Model.xcdatamodeld */,
-				CEA92A3C18FAF1D0001673B1 /* _JHMAlert.h */,
-				CEA92A3D18FAF1D0001673B1 /* _JHMAlert.m */,
-				CEA92A3E18FAF1D0001673B1 /* _JHMCity.h */,
-				CEA92A3F18FAF1D0001673B1 /* _JHMCity.m */,
-				CEA92A4018FAF1D0001673B1 /* _JHMNamedEntity.h */,
-				CEA92A4118FAF1D0001673B1 /* _JHMNamedEntity.m */,
-				CEA92A4218FAF1D0001673B1 /* _JHMWindDirectionsCatalog.h */,
-				CEA92A4318FAF1D0001673B1 /* _JHMWindDirectionsCatalog.m */,
-				CEA92A4418FAF1D0001673B1 /* JHMAlert.h */,
-				CEA92A4518FAF1D0001673B1 /* JHMAlert.m */,
-				CEA92A4618FAF1D0001673B1 /* JHMCity.h */,
-				CEA92A4718FAF1D0001673B1 /* JHMCity.m */,
-				CEA92A4818FAF1D0001673B1 /* JHMNamedEntity.h */,
-				CEA92A4918FAF1D0001673B1 /* JHMNamedEntity.m */,
-				CEA92A4A18FAF1D0001673B1 /* JHMWindDirectionsCatalog.h */,
-				CEA92A4B18FAF1D0001673B1 /* JHMWindDirectionsCatalog.m */,
-				CEA929E018FA9C97001673B1 /* AGTSimpleCoreDataStack.h */,
-				CEA929E118FA9C97001673B1 /* AGTSimpleCoreDataStack.m */,
-				CE9F328A18FD7EB0007CC21E /* City.h */,
-				CE9F328B18FD7EB0007CC21E /* City.m */,
-				CE9F328D18FD8FB6007CC21E /* Coordinate.h */,
-				CE9F328E18FD8FB6007CC21E /* Coordinate.m */,
-				CE9F329018FD9652007CC21E /* Weather.h */,
-				CE9F329118FD9652007CC21E /* Weather.m */,
-				CE9F329318FDA08A007CC21E /* Wind.h */,
-				CE9F329418FDA08A007CC21E /* Wind.m */,
+				CEADAD571900054A00D51D06 /* Core Data  */,
+				CEADAD561900053700D51D06 /* Objects Model */,
 			);
 			name = Model;
 			sourceTree = "<group>";

@@ -17,8 +17,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Create the Instance of the Core Data stack
-    
-//    self.model = [AGTSimpleCoreDataStack coreDataStackWithModelName:@"Model"];
+
     
     return YES;
 }
