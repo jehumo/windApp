@@ -10,6 +10,7 @@
 #import "City.h"
 
 @interface DetailWeatherCityViewController : ViewController <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *configureAlertsButton;
 
 @property (nonatomic, strong) City * selectedCity;
 

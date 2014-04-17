@@ -19,6 +19,7 @@ PODS:
   - RestKit/ObjectMapping (0.20.3)
   - RestKit/Support (0.20.3):
     - TransitionKit (= 1.1.1)
+  - RestKit/Testing (0.20.3)
   - SOCKit (1.1)
   - SVProgressHUD (1.0)
   - TransitionKit (1.1.1)
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - Reachability
   - RestKit
   - RestKit (~> 0.20.1)
+  - RestKit/Testing
   - SVProgressHUD
 
 SPEC CHECKSUMS:

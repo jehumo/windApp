@@ -5,7 +5,8 @@
 //  Created by JESUS HURTADO on 12/04/14.
 //  Copyright (c) 2014 Piksel. All rights reserved.
 //
-
+#define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
+#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 #import "DetailWeatherCityViewController.h"
 #import "WindPredictionCell.h"
 #import "Wind.h"
@@ -13,6 +14,8 @@
 #import <RestKit/RestKit.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "ViewController.h"
+#import "JHMCity.h"
+#import "AlertsViewController.h"
 
 @interface DetailWeatherCityViewController ()
 
@@ -25,19 +28,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"City"
+                                              inManagedObjectContext:self.model.context];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate * predicateByIdCity = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idCity=%@",self.selectedCity.idCity]];
+    
+    [fetchRequest setPredicate:predicateByIdCity];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [self.model.context executeFetchRequest:fetchRequest error:&error];
+    
+    if ((fetchedObjects == nil) || ([fetchedObjects count] == 0)) {
+        
+        [self.configureAlertsButton setEnabled:NO];
+        
+    } else {
+        [self.configureAlertsButton setEnabled:YES];
+        
+    }
+    
+
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    ViewController * vc =[[ViewController alloc]init];
-    
-    
     
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     
     [self.navigationController.navigationBar setHidden:NO];
-    [self.navigationController setTitle:[NSString stringWithFormat:@"%@ forecast",self.selectedCity.name]];
     
     [self setTitle:[NSString stringWithFormat:@"Wind prediction for %@", self.selectedCity.name]];
     [self loadWindPredictions ];
@@ -80,7 +102,7 @@
     
     cellWindPrediction.windImageView.center = CGPointMake(100.0, 100.0);
     //rotate rect
-    cellWindPrediction.windImageView.transform = CGAffineTransformMakeRotation([windPrediction.degrees doubleValue]); //rotation in radians
+    cellWindPrediction.windImageView.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS([windPrediction.degrees doubleValue])); //rotation in radians
     
     
     
@@ -151,7 +173,13 @@
     }
 }
 
-
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"showAlertController"]) {
+        AlertsViewController * alertsViewController = (AlertsViewController *) segue.destinationViewController;
+        alertsViewController.selectedCity  = self.selectedCity;
+    }
+}
 
 
 @end

@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSWindChallenge/view/DetailWeatherCityViewController.m"
-            timestampString = "419391618.645898"
+            timestampString = "419425599.9814"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -105,12 +105,12 @@
                   symbolName = "-[ViewController mapView:annotationView:calloutAccessoryControlTapped:]"
                   moduleName = "iOSWindChallenge"
                   urlString = "file:///Users/user/git/piksel/windApp/iOSWindChallenge/view/ViewController.m"
-                  timestampString = "419415907.65255"
+                  timestampString = "419427684.176357"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "241"
                   endingLineNumber = "241"
-                  offsetFromSymbolStart = "1726">
+                  offsetFromSymbolStart = "1692">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -119,76 +119,14 @@
                   symbolName = "__71-[ViewController mapView:annotationView:calloutAccessoryControlTapped:]_block_invoke"
                   moduleName = "iOSWindChallenge"
                   urlString = "file:///Users/user/git/piksel/windApp/iOSWindChallenge/view/ViewController.m"
-                  timestampString = "419415907.652776"
+                  timestampString = "419427684.176559"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "241"
                   endingLineNumber = "241"
-                  offsetFromSymbolStart = "46">
+                  offsetFromSymbolStart = "65">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOSWindChallenge/view/DetailWeatherCityViewController.m"
-            timestampString = "419415907.557344"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "-loadWindPredictions"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__54-[DetailWeatherCityViewController loadWindPredictions]_block_invoke"
-                  moduleName = "iOSWindChallenge"
-                  urlString = "file:///Users/user/git/piksel/windApp/iOSWindChallenge/view/DetailWeatherCityViewController.m"
-                  timestampString = "419415907.65372"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "133"
-                  endingLineNumber = "133"
-                  offsetFromSymbolStart = "654">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__54-[DetailWeatherCityViewController loadWindPredictions]_block_invoke_2"
-                  moduleName = "iOSWindChallenge"
-                  urlString = "file:///Users/user/git/piksel/windApp/iOSWindChallenge/view/DetailWeatherCityViewController.m"
-                  timestampString = "419415907.653924"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "133"
-                  endingLineNumber = "133"
-                  offsetFromSymbolStart = "50">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOSWindChallenge/view/DetailWeatherCityViewController.m"
-            timestampString = "419415907.557344"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-loadWindPredictions"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -198,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSWindChallenge/view/DetailWeatherCityViewController.m"
-            timestampString = "419393219.417013"
+            timestampString = "419425599.9814"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -213,13 +151,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "UtilRestkit.m"
-            timestampString = "419414780.561747"
+            filePath = "RKTesting/RKTesting.m"
+            timestampString = "419419402.724988"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "-configureRestKit"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-testExample"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -229,13 +167,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "UtilRestkit.m"
-            timestampString = "419415075.520325"
+            filePath = "RKTesting/RKTesting.m"
+            timestampString = "419419798.642808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "-configureRestKit"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-testExample"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RKTesting/RKTesting.m"
+            timestampString = "419419801.978898"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "-setUp"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RKTesting/RKTesting.m"
+            timestampString = "419419805.218973"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "-articleMapping"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOSWindChallenge/view/AddAlertViewController.m"
+            timestampString = "419427466.544149"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-saveAlert:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

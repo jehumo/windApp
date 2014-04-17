@@ -30,6 +30,15 @@
 		CEA92A5118FAF1D0001673B1 /* JHMCity.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA92A4718FAF1D0001673B1 /* JHMCity.m */; };
 		CEA92A5218FAF1D0001673B1 /* JHMNamedEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA92A4918FAF1D0001673B1 /* JHMNamedEntity.m */; };
 		CEA92A5318FAF1D0001673B1 /* JHMWindDirectionsCatalog.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA92A4B18FAF1D0001673B1 /* JHMWindDirectionsCatalog.m */; };
+		CEADAD2718FFCD5900D51D06 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76E0918F9A9B0007D8421 /* XCTest.framework */; };
+		CEADAD2818FFCD5A00D51D06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DE718F9A9AF007D8421 /* Foundation.framework */; };
+		CEADAD2918FFCD5A00D51D06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DEB18F9A9B0007D8421 /* UIKit.framework */; };
+		CEADAD2F18FFCD5A00D51D06 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEADAD2D18FFCD5A00D51D06 /* InfoPlist.strings */; };
+		CEADAD3118FFCD5A00D51D06 /* RKTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = CEADAD3018FFCD5A00D51D06 /* RKTesting.m */; };
+		CEADAD4418FFD28200D51D06 /* File in Resources */ = {isa = PBXBuildFile; fileRef = CEADAD4318FFD28200D51D06 /* File */; };
+		CEADAD4918FFD48B00D51D06 /* RKArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = CEADAD4818FFD48B00D51D06 /* RKArticle.m */; };
+		CEADAD4C18FFDE6B00D51D06 /* AlertsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEADAD4B18FFDE6B00D51D06 /* AlertsViewController.m */; };
+		CEADAD5518FFE52100D51D06 /* AddAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEADAD5418FFE52100D51D06 /* AddAlertViewController.m */; };
 		CEB76DE818F9A9AF007D8421 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DE718F9A9AF007D8421 /* Foundation.framework */; };
 		CEB76DEA18F9A9B0007D8421 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DE918F9A9B0007D8421 /* CoreGraphics.framework */; };
 		CEB76DEC18F9A9B0007D8421 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB76DEB18F9A9B0007D8421 /* UIKit.framework */; };
@@ -49,6 +58,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CEADAD3318FFCD5A00D51D06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEB76DDC18F9A9AF007D8421 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEB76DE318F9A9AF007D8421;
+			remoteInfo = iOSWindChallenge;
+		};
+		CEADAD3818FFCDBA00D51D06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEB76DDC18F9A9AF007D8421 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEB76E0718F9A9B0007D8421;
+			remoteInfo = iOSWindChallengeTests;
+		};
 		CEB76E0D18F9A9B0007D8421 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CEB76DDC18F9A9AF007D8421 /* Project object */;
@@ -101,6 +124,18 @@
 		CEA92A4918FAF1D0001673B1 /* JHMNamedEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHMNamedEntity.m; sourceTree = SOURCE_ROOT; };
 		CEA92A4A18FAF1D0001673B1 /* JHMWindDirectionsCatalog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHMWindDirectionsCatalog.h; sourceTree = SOURCE_ROOT; };
 		CEA92A4B18FAF1D0001673B1 /* JHMWindDirectionsCatalog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHMWindDirectionsCatalog.m; sourceTree = SOURCE_ROOT; };
+		CEADAD2618FFCD5900D51D06 /* RKTesting.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RKTesting.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEADAD2C18FFCD5A00D51D06 /* RKTesting-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RKTesting-Info.plist"; sourceTree = "<group>"; };
+		CEADAD2E18FFCD5A00D51D06 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CEADAD3018FFCD5A00D51D06 /* RKTesting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RKTesting.m; sourceTree = "<group>"; };
+		CEADAD3218FFCD5A00D51D06 /* RKTesting-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RKTesting-Prefix.pch"; sourceTree = "<group>"; };
+		CEADAD4318FFD28200D51D06 /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = File; path = Fixtures/File; sourceTree = "<group>"; };
+		CEADAD4718FFD48B00D51D06 /* RKArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKArticle.h; sourceTree = "<group>"; };
+		CEADAD4818FFD48B00D51D06 /* RKArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKArticle.m; sourceTree = "<group>"; };
+		CEADAD4A18FFDE6B00D51D06 /* AlertsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertsViewController.h; sourceTree = "<group>"; };
+		CEADAD4B18FFDE6B00D51D06 /* AlertsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertsViewController.m; sourceTree = "<group>"; };
+		CEADAD5318FFE52100D51D06 /* AddAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAlertViewController.h; sourceTree = "<group>"; };
+		CEADAD5418FFE52100D51D06 /* AddAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAlertViewController.m; sourceTree = "<group>"; };
 		CEB76DE418F9A9AF007D8421 /* iOSWindChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSWindChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB76DE718F9A9AF007D8421 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEB76DE918F9A9B0007D8421 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +161,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CEADAD2318FFCD5800D51D06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEADAD2718FFCD5900D51D06 /* XCTest.framework in Frameworks */,
+				CEADAD2918FFCD5A00D51D06 /* UIKit.framework in Frameworks */,
+				CEADAD2818FFCD5A00D51D06 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEB76DE118F9A9AF007D8421 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -175,11 +220,42 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		CEADAD2A18FFCD5A00D51D06 /* RKTesting */ = {
+			isa = PBXGroup;
+			children = (
+				CEADAD4218FFD25200D51D06 /* Fixtures */,
+				CEADAD3018FFCD5A00D51D06 /* RKTesting.m */,
+				CEADAD2B18FFCD5A00D51D06 /* Supporting Files */,
+				CEADAD4718FFD48B00D51D06 /* RKArticle.h */,
+				CEADAD4818FFD48B00D51D06 /* RKArticle.m */,
+			);
+			path = RKTesting;
+			sourceTree = "<group>";
+		};
+		CEADAD2B18FFCD5A00D51D06 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CEADAD2C18FFCD5A00D51D06 /* RKTesting-Info.plist */,
+				CEADAD2D18FFCD5A00D51D06 /* InfoPlist.strings */,
+				CEADAD3218FFCD5A00D51D06 /* RKTesting-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CEADAD4218FFD25200D51D06 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				CEADAD4318FFD28200D51D06 /* File */,
+			);
+			name = Fixtures;
+			sourceTree = "<group>";
+		};
 		CEB76DDB18F9A9AF007D8421 = {
 			isa = PBXGroup;
 			children = (
 				CEB76DED18F9A9B0007D8421 /* iOSWindChallenge */,
 				CEB76E0F18F9A9B0007D8421 /* iOSWindChallengeTests */,
+				CEADAD2A18FFCD5A00D51D06 /* RKTesting */,
 				CEB76DE618F9A9AF007D8421 /* Frameworks */,
 				CEB76DE518F9A9AF007D8421 /* Products */,
 				8F2402166A36415CAE25014E /* Pods.xcconfig */,
@@ -191,6 +267,7 @@
 			children = (
 				CEB76DE418F9A9AF007D8421 /* iOSWindChallenge.app */,
 				CEB76E0818F9A9B0007D8421 /* iOSWindChallengeTests.xctest */,
+				CEADAD2618FFCD5900D51D06 /* RKTesting.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -296,6 +373,10 @@
 				CEB76E2218F9B087007D8421 /* ViewController.m */,
 				CEB76E2518F9B5A9007D8421 /* DetailWeatherCityViewController.h */,
 				CEB76E2618F9B5A9007D8421 /* DetailWeatherCityViewController.m */,
+				CEADAD4A18FFDE6B00D51D06 /* AlertsViewController.h */,
+				CEADAD4B18FFDE6B00D51D06 /* AlertsViewController.m */,
+				CEADAD5318FFE52100D51D06 /* AddAlertViewController.h */,
+				CEADAD5418FFE52100D51D06 /* AddAlertViewController.m */,
 				CEADAD2118FFCAC500D51D06 /* Cells */,
 				CE84454118FE5CF1001C4C2E /* Annotation Views */,
 			);
@@ -316,6 +397,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CEADAD2518FFCD5800D51D06 /* RKTesting */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEADAD3518FFCD5A00D51D06 /* Build configuration list for PBXNativeTarget "RKTesting" */;
+			buildPhases = (
+				CEADAD2218FFCD5800D51D06 /* Sources */,
+				CEADAD2318FFCD5800D51D06 /* Frameworks */,
+				CEADAD2418FFCD5800D51D06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEADAD3918FFCDBA00D51D06 /* PBXTargetDependency */,
+				CEADAD3418FFCD5A00D51D06 /* PBXTargetDependency */,
+			);
+			name = RKTesting;
+			productName = RKTesting;
+			productReference = CEADAD2618FFCD5900D51D06 /* RKTesting.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CEB76DE318F9A9AF007D8421 /* iOSWindChallenge */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEB76E1918F9A9B0007D8421 /* Build configuration list for PBXNativeTarget "iOSWindChallenge" */;
@@ -362,6 +462,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Piksel;
 				TargetAttributes = {
+					CEADAD2518FFCD5800D51D06 = {
+						TestTargetID = CEB76DE318F9A9AF007D8421;
+					};
 					CEB76DE318F9A9AF007D8421 = {
 						DevelopmentTeam = A7WQE96FSS;
 					};
@@ -385,11 +488,21 @@
 			targets = (
 				CEB76DE318F9A9AF007D8421 /* iOSWindChallenge */,
 				CEB76E0718F9A9B0007D8421 /* iOSWindChallengeTests */,
+				CEADAD2518FFCD5800D51D06 /* RKTesting */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CEADAD2418FFCD5800D51D06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEADAD4418FFD28200D51D06 /* File in Resources */,
+				CEADAD2F18FFCD5A00D51D06 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEB76DE218F9A9AF007D8421 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -445,6 +558,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CEADAD2218FFCD5800D51D06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEADAD4918FFD48B00D51D06 /* RKArticle.m in Sources */,
+				CEADAD3118FFCD5A00D51D06 /* RKTesting.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEB76DE018F9A9AF007D8421 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,6 +574,7 @@
 				CE527A7F18FDB63D0046B7B3 /* WindPredictionCell.m in Sources */,
 				CEA92A4C18FAF1D0001673B1 /* _JHMAlert.m in Sources */,
 				CEB76DF818F9A9B0007D8421 /* AppDelegate.m in Sources */,
+				CEADAD5518FFE52100D51D06 /* AddAlertViewController.m in Sources */,
 				CEA929E218FA9C97001673B1 /* AGTSimpleCoreDataStack.m in Sources */,
 				CEA92A5318FAF1D0001673B1 /* JHMWindDirectionsCatalog.m in Sources */,
 				CEA92A4E18FAF1D0001673B1 /* _JHMNamedEntity.m in Sources */,
@@ -460,6 +583,7 @@
 				CEA929E518FAA2DE001673B1 /* Model.xcdatamodeld in Sources */,
 				CEA92A5018FAF1D0001673B1 /* JHMAlert.m in Sources */,
 				CE84454718FE62D3001C4C2E /* UserTrackingAnnotation.m in Sources */,
+				CEADAD4C18FFDE6B00D51D06 /* AlertsViewController.m in Sources */,
 				CEA92A4F18FAF1D0001673B1 /* _JHMWindDirectionsCatalog.m in Sources */,
 				CE84454418FE5E4C001C4C2E /* CityAnnotation.m in Sources */,
 				CEA92A4D18FAF1D0001673B1 /* _JHMCity.m in Sources */,
@@ -486,6 +610,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CEADAD3418FFCD5A00D51D06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEB76DE318F9A9AF007D8421 /* iOSWindChallenge */;
+			targetProxy = CEADAD3318FFCD5A00D51D06 /* PBXContainerItemProxy */;
+		};
+		CEADAD3918FFCDBA00D51D06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEB76E0718F9A9B0007D8421 /* iOSWindChallengeTests */;
+			targetProxy = CEADAD3818FFCDBA00D51D06 /* PBXContainerItemProxy */;
+		};
 		CEB76E0E18F9A9B0007D8421 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CEB76DE318F9A9AF007D8421 /* iOSWindChallenge */;
@@ -494,6 +628,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CEADAD2D18FFCD5A00D51D06 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEADAD2E18FFCD5A00D51D06 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		CEB76DF018F9A9B0007D8421 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -529,6 +671,57 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CEADAD3618FFCD5A00D51D06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F2402166A36415CAE25014E /* Pods.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iOSWindChallenge.app/iOSWindChallenge";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RKTesting/RKTesting-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+				);
+				INFOPLIST_FILE = "RKTesting/RKTesting-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		CEADAD3718FFCD5A00D51D06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iOSWindChallenge.app/iOSWindChallenge";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RKTesting/RKTesting-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+				);
+				INFOPLIST_FILE = "RKTesting/RKTesting-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		CEB76E1718F9A9B0007D8421 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -547,6 +740,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -562,6 +756,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -587,6 +782,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -595,6 +791,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -637,6 +834,7 @@
 		};
 		CEB76E1D18F9A9B0007D8421 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F2402166A36415CAE25014E /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iOSWindChallenge.app/iOSWindChallenge";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -678,6 +876,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CEADAD3518FFCD5A00D51D06 /* Build configuration list for PBXNativeTarget "RKTesting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEADAD3618FFCD5A00D51D06 /* Debug */,
+				CEADAD3718FFCD5A00D51D06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		CEB76DDF18F9A9AF007D8421 /* Build configuration list for PBXProject "iOSWindChallenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

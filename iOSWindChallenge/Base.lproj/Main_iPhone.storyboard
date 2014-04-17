@@ -187,11 +187,12 @@
                     <navigationItem key="navigationItem" title="Wind Prediction" id="Y6V-hv-R4H">
                         <barButtonItem key="rightBarButtonItem" title="Alerts" id="v1q-lA-Lnh">
                             <connections>
-                                <segue destination="R14-kx-ZTv" kind="push" identifier="showAlertController" id="oJx-YW-F5W"/>
+                                <segue destination="Oel-01-9hV" kind="push" identifier="showAlertController" id="D4v-zo-8hk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="configureAlertsButton" destination="v1q-lA-Lnh" id="djB-2r-nbl"/>
                         <outlet property="tableView" destination="aJh-mR-p17" id="ju4-yx-f6i"/>
                         <outlet property="viewTableContainer" destination="Whi-rc-TYH" id="Wxf-75-2YQ"/>
                     </connections>
@@ -200,23 +201,196 @@
             </objects>
             <point key="canvasLocation" x="646" y="5"/>
         </scene>
-        <!--View Controller - ShowAlertController-->
-        <scene sceneID="Sva-iv-ivT">
+        <!--Alerts View Controller - Wind Alerts for a city-->
+        <scene sceneID="Y6P-MQ-ppY">
             <objects>
-                <viewController id="R14-kx-ZTv" userLabel="View Controller - ShowAlertController" sceneMemberID="viewController">
+                <tableViewController id="Oel-01-9hV" customClass="AlertsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="N5k-lt-4qn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="8SF-dZ-4Cx" detailTextLabel="R9l-Zd-YjG" style="IBUITableViewCellStyleSubtitle" id="xlV-6F-rAa">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xlV-6F-rAa" id="BYL-4u-lud">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8SF-dZ-4Cx">
+                                            <rect key="frame" x="15" y="4" width="29" height="18"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R9l-Zd-YjG">
+                                            <rect key="frame" x="15" y="22" width="50" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Oel-01-9hV" id="nfP-hL-He3"/>
+                            <outlet property="delegate" destination="Oel-01-9hV" id="xFf-1G-3MG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Wind Alerts for a city" id="bL9-vf-QSZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="j0o-lL-T8g">
+                            <connections>
+                                <segue destination="ZPu-SO-PoV" kind="push" identifier="showAddAlert" id="3vz-4e-pIb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OzE-QY-ZOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1089" y="5"/>
+        </scene>
+        <!--Add Alert View Controller-->
+        <scene sceneID="WgY-uU-sG5">
+            <objects>
+                <viewController id="ZPu-SO-PoV" customClass="AddAlertViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1TA-Oa-O7E"/>
-                        <viewControllerLayoutGuide type="bottom" id="sqz-UQ-IMA"/>
+                        <viewControllerLayoutGuide type="top" id="maW-6h-QZg"/>
+                        <viewControllerLayoutGuide type="bottom" id="oAn-1R-d4a"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Edr-XF-PPW">
+                    <view key="view" contentMode="scaleToFill" id="fYz-aj-KZB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Setup your alert" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nbj-Fm-HlH">
+                                <rect key="frame" x="35" y="83" width="270" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1r-YF-mCB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Add To Do Item" id="BQg-M3-kmE">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="NVD-LY-7dl">
+                                            <connections>
+                                                <action selector="cancel:" destination="ZPu-SO-PoV" id="0P2-RJ-eiw"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Speed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZ2-ch-aoT">
+                                <rect key="frame" x="41" y="158" width="126" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KF7-Fm-AfJ">
+                                <rect key="frame" x="218" y="149" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Min Degrees" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMg-RI-jkv">
+                                <rect key="frame" x="41" y="245" width="126" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="259" translatesAutoresizingMaskIntoConstraints="NO" id="ajC-U7-kp6">
+                                <rect key="frame" x="39" y="282" width="118" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="minSliderChanged:" destination="ZPu-SO-PoV" eventType="valueChanged" id="Vd8-VY-gbm"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="360º" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Og7-mq-Qey">
+                                <rect key="frame" x="73" y="337" width="36" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Max Degrees" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJn-Uu-Pfc">
+                                <rect key="frame" x="215" y="251" width="126" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="259" translatesAutoresizingMaskIntoConstraints="NO" id="yal-Cw-BJs">
+                                <rect key="frame" x="191" y="280" width="118" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="maxSliderChanged:" destination="ZPu-SO-PoV" eventType="valueChanged" id="cyW-mh-LaB"/>
+                                    <action selector="minSliderChanged:" destination="ZPu-SO-PoV" eventType="valueChanged" id="h7l-Cp-Xdb"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="360º" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnS-Dc-kDs">
+                                <rect key="frame" x="232" y="337" width="36" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTf-1y-Ltf">
+                                <rect key="frame" x="125" y="394" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save Alert">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveAlert:" destination="ZPu-SO-PoV" eventType="touchUpInside" id="2wA-fV-K2v"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F1r-YF-mCB" firstAttribute="top" secondItem="fYz-aj-KZB" secondAttribute="top" id="2dg-tE-84O"/>
+                            <constraint firstItem="ajC-U7-kp6" firstAttribute="top" secondItem="dMg-RI-jkv" secondAttribute="bottom" constant="16" id="4ls-N5-PGu"/>
+                            <constraint firstItem="Og7-mq-Qey" firstAttribute="top" secondItem="ajC-U7-kp6" secondAttribute="bottom" constant="25" id="53f-vh-DhP"/>
+                            <constraint firstItem="yal-Cw-BJs" firstAttribute="leading" secondItem="ajC-U7-kp6" secondAttribute="trailing" constant="38" id="5CI-47-pYV"/>
+                            <constraint firstAttribute="trailing" secondItem="yal-Cw-BJs" secondAttribute="trailing" constant="13" id="5le-lk-mNv"/>
+                            <constraint firstAttribute="trailing" secondItem="KnS-Dc-kDs" secondAttribute="trailing" constant="52" id="9V5-Jj-DpX"/>
+                            <constraint firstItem="KnS-Dc-kDs" firstAttribute="baseline" secondItem="Og7-mq-Qey" secondAttribute="baseline" id="DiF-sl-heD"/>
+                            <constraint firstItem="yal-Cw-BJs" firstAttribute="centerX" secondItem="KnS-Dc-kDs" secondAttribute="centerX" id="EpO-lD-lHx"/>
+                            <constraint firstItem="Nbj-Fm-HlH" firstAttribute="top" secondItem="maW-6h-QZg" secondAttribute="bottom" constant="19" id="G93-Dc-ed7"/>
+                            <constraint firstItem="F1r-YF-mCB" firstAttribute="leading" secondItem="fYz-aj-KZB" secondAttribute="leading" id="GVo-Yy-eH1"/>
+                            <constraint firstItem="dMg-RI-jkv" firstAttribute="leading" secondItem="ajC-U7-kp6" secondAttribute="leading" id="KbV-sG-xfa"/>
+                            <constraint firstItem="Og7-mq-Qey" firstAttribute="leading" secondItem="fYz-aj-KZB" secondAttribute="leading" constant="73" id="LXD-Nf-kni"/>
+                            <constraint firstItem="KF7-Fm-AfJ" firstAttribute="top" secondItem="Nbj-Fm-HlH" secondAttribute="bottom" constant="45" id="Pny-WB-JwA"/>
+                            <constraint firstItem="KnS-Dc-kDs" firstAttribute="top" secondItem="yal-Cw-BJs" secondAttribute="bottom" constant="27" id="S5m-BV-D7h"/>
+                            <constraint firstItem="yal-Cw-BJs" firstAttribute="top" secondItem="gJn-Uu-Pfc" secondAttribute="bottom" constant="8" symbolic="YES" id="U6x-hJ-mAa"/>
+                            <constraint firstItem="F1r-YF-mCB" firstAttribute="centerX" secondItem="mTf-1y-Ltf" secondAttribute="centerX" id="VHv-KI-vHs"/>
+                            <constraint firstAttribute="trailing" secondItem="KF7-Fm-AfJ" secondAttribute="trailing" constant="37" id="Xw9-du-JA7"/>
+                            <constraint firstAttribute="trailing" secondItem="Nbj-Fm-HlH" secondAttribute="trailing" constant="15" id="b53-bP-BEC"/>
+                            <constraint firstAttribute="trailing" secondItem="F1r-YF-mCB" secondAttribute="trailing" id="bh4-Bh-NV3"/>
+                            <constraint firstItem="mTf-1y-Ltf" firstAttribute="top" secondItem="ajC-U7-kp6" secondAttribute="bottom" constant="82" id="brJ-1t-Gvd"/>
+                            <constraint firstItem="KF7-Fm-AfJ" firstAttribute="bottom" secondItem="jZ2-ch-aoT" secondAttribute="bottom" id="f2l-UC-XAi"/>
+                            <constraint firstItem="yal-Cw-BJs" firstAttribute="centerX" secondItem="KF7-Fm-AfJ" secondAttribute="centerX" id="fiR-0R-qO6"/>
+                            <constraint firstItem="Nbj-Fm-HlH" firstAttribute="leading" secondItem="fYz-aj-KZB" secondAttribute="leading" constant="35" id="ird-Cy-VUW"/>
+                            <constraint firstItem="jZ2-ch-aoT" firstAttribute="leading" secondItem="fYz-aj-KZB" secondAttribute="leading" constant="41" id="jKM-Du-bzT"/>
+                            <constraint firstItem="jZ2-ch-aoT" firstAttribute="trailing" secondItem="dMg-RI-jkv" secondAttribute="trailing" id="oPo-m3-QI5"/>
+                            <constraint firstItem="KF7-Fm-AfJ" firstAttribute="leading" secondItem="jZ2-ch-aoT" secondAttribute="trailing" constant="51" id="oW4-g7-Niy"/>
+                            <constraint firstItem="dMg-RI-jkv" firstAttribute="top" secondItem="jZ2-ch-aoT" secondAttribute="bottom" constant="66" id="pt3-Kd-4yw"/>
+                            <constraint firstItem="gJn-Uu-Pfc" firstAttribute="leading" secondItem="dMg-RI-jkv" secondAttribute="trailing" constant="48" id="vjc-9F-ilw"/>
+                            <constraint firstAttribute="trailing" secondItem="gJn-Uu-Pfc" secondAttribute="trailing" constant="-21" id="yvy-9J-iOy"/>
+                            <constraint firstItem="dMg-RI-jkv" firstAttribute="leading" secondItem="jZ2-ch-aoT" secondAttribute="leading" id="zNa-dL-led"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="maxLabel" destination="KnS-Dc-kDs" id="BKc-ku-Swg"/>
+                        <outlet property="maxSelector" destination="yal-Cw-BJs" id="o9d-NB-mSq"/>
+                        <outlet property="minLabel" destination="Og7-mq-Qey" id="h2b-kF-Sbr"/>
+                        <outlet property="minSelector" destination="ajC-U7-kp6" id="3iX-Wb-PzV"/>
+                        <outlet property="speedAlertTextField" destination="KF7-Fm-AfJ" id="meZ-fX-S5L"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bk2-oc-ST3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mXr-yf-lve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1110" y="5"/>
+            <point key="canvasLocation" x="1533" y="5"/>
         </scene>
     </scenes>
     <resources>
