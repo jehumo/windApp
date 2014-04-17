@@ -128,11 +128,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Whi-rc-TYH" userLabel="viewTableContainer">
-                                <rect key="frame" x="0.0" y="67" width="320" height="454"/>
+                                <rect key="frame" x="0.0" y="67" width="320" height="501"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="41" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="aJh-mR-p17">
-                                        <rect key="frame" x="0.0" y="-50" width="320" height="504"/>
+                                        <rect key="frame" x="0.0" y="-50" width="320" height="551"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -184,7 +184,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Wind Prediction" id="Y6V-hv-R4H"/>
+                    <navigationItem key="navigationItem" title="Wind Prediction" id="Y6V-hv-R4H">
+                        <barButtonItem key="rightBarButtonItem" title="Alerts" id="v1q-lA-Lnh">
+                            <connections>
+                                <segue destination="R14-kx-ZTv" kind="push" identifier="showAlertController" id="oJx-YW-F5W"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="aJh-mR-p17" id="ju4-yx-f6i"/>
                         <outlet property="viewTableContainer" destination="Whi-rc-TYH" id="Wxf-75-2YQ"/>
@@ -192,7 +198,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bVU-nu-hkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="764" y="67"/>
+            <point key="canvasLocation" x="646" y="5"/>
+        </scene>
+        <!--View Controller - ShowAlertController-->
+        <scene sceneID="Sva-iv-ivT">
+            <objects>
+                <viewController id="R14-kx-ZTv" userLabel="View Controller - ShowAlertController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1TA-Oa-O7E"/>
+                        <viewControllerLayoutGuide type="bottom" id="sqz-UQ-IMA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Edr-XF-PPW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bk2-oc-ST3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1110" y="5"/>
         </scene>
     </scenes>
     <resources>

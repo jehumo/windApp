@@ -93,7 +93,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd "];
     
-    cellWindPrediction.theTitle.text=[NSString stringWithFormat:@"%@    Wind Speed :%@",[dateFormatter stringFromDate:epochNSDate], windPrediction.speed];
+    cellWindPrediction.theTitle.text=[NSString stringWithFormat:@"%@  Wind Speed :%@",[dateFormatter stringFromDate:epochNSDate], windPrediction.speed];
 
     
     

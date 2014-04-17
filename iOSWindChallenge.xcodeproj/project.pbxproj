@@ -166,6 +166,15 @@
 			name = "Annotation Views";
 			sourceTree = "<group>";
 		};
+		CEADAD2118FFCAC500D51D06 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE527A7D18FDB63D0046B7B3 /* WindPredictionCell.h */,
+				CE527A7E18FDB63D0046B7B3 /* WindPredictionCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		CEB76DDB18F9A9AF007D8421 = {
 			isa = PBXGroup;
 			children = (
@@ -285,10 +294,9 @@
 			children = (
 				CEB76E2118F9B087007D8421 /* ViewController.h */,
 				CEB76E2218F9B087007D8421 /* ViewController.m */,
-				CE527A7D18FDB63D0046B7B3 /* WindPredictionCell.h */,
-				CE527A7E18FDB63D0046B7B3 /* WindPredictionCell.m */,
 				CEB76E2518F9B5A9007D8421 /* DetailWeatherCityViewController.h */,
 				CEB76E2618F9B5A9007D8421 /* DetailWeatherCityViewController.m */,
+				CEADAD2118FFCAC500D51D06 /* Cells */,
 				CE84454118FE5CF1001C4C2E /* Annotation Views */,
 			);
 			name = View;
