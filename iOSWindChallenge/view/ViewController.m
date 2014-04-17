@@ -184,7 +184,7 @@
             //Left
             UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
             leftButton.frame = CGRectMake(0, 0, 23, 23);
-            [leftButton setBackgroundImage:[UIImage imageNamed:@"not_fav_yet"] forState:UIControlStateNormal];
+            [leftButton setBackgroundImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
             
             annotationView.leftCalloutAccessoryView = leftButton;
             annotationView.leftCalloutAccessoryView.tag =1;
@@ -289,7 +289,6 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    [searchBar setText:@"Cadiz"];
     [searchBar setShowsCancelButton:YES animated:YES];
 }
 

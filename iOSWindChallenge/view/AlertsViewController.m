@@ -24,7 +24,8 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    
+    self.model = [AGTSimpleCoreDataStack coreDataStackWithModelName:@"Model"];
+
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     
@@ -33,6 +34,18 @@
     [self setTitle:[NSString stringWithFormat:@"Alerts for %@", self.selectedCity.name]];
 
     NSLog(@"Log Debug Trace ::: self.selectedCity.name : %@", self.selectedCity.name);
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Alert"
+                                              inManagedObjectContext:self.model.context];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *fetchedObjects = [self.model.context executeFetchRequest:fetchRequest error:&error];
+    for (JHMAlert * alert in fetchedObjects) {
+        NSLog(@"Name: %@", alert.speedTrigger);
+        
+    }
+
 }
 - (void)didReceiveMemoryWarning
 {

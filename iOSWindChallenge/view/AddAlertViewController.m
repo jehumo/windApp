@@ -8,6 +8,9 @@
 #define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 #import "AddAlertViewController.h"
+#import "JHMAlert.h"
+#import "JHMCity.h"
+#import "SVProgressHUD.h"
 
 @interface AddAlertViewController ()
 
@@ -22,9 +25,10 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    self.model = [AGTSimpleCoreDataStack coreDataStackWithModelName:@"Model"];
     [self.navigationController.navigationBar setHidden:NO];
     
-    [self setTitle:[NSString stringWithFormat:@"Aert for %@", self.selectedCity.name]];
+    [self setTitle:[NSString stringWithFormat:@"New alert for %@", self.selectedCity.name]];
     
 }
 
@@ -66,6 +70,52 @@
 - (IBAction)saveAlert:(id)sender {
     
     // Validations and save
+    
+    
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"City"
+                                              inManagedObjectContext:self.model.context];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate * predicateByIdCity = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idCity=%@",self.selectedCity.idCity]];
+    
+    [fetchRequest setPredicate:predicateByIdCity];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [self.model.context executeFetchRequest:fetchRequest error:&error];
+        
+
+    if ((fetchedObjects == nil) || ([fetchedObjects count] == 0)) {
+        
+        
+        [SVProgressHUD showErrorWithStatus:@"Not found any citys on data base"];
+        
+    } else {
+        
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber * speed = [f numberFromString:self.speedAlertTextField.text];
+        
+        
+        JHMCity * city = (JHMCity *) [fetchedObjects objectAtIndex:0];
+        
+        JHMAlert * newAlert = [JHMAlert alertAnyDirectionWithName:nil
+                                                         withCity:city
+                                                     speedTrigger:speed
+                                                          context:self.model.context];
+        [self.model saveWithErrorBlock:^(NSError *error) {
+            NSLog(@"Error saving %s \n\n %@",__func__, error);
+        }];
+        
+        [SVProgressHUD showSuccessWithStatus:@"New Alert Added"];
+
+    }
+    
+
+    
+    
+    
     
     
     
