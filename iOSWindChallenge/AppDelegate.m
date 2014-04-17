@@ -16,9 +16,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Create the Instance of the Core Data stack
-
     
+    // Create a custom interface with the color of piksel logo
+    [self customizeAppearance];
     return YES;
 }
 							
@@ -46,5 +46,27 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+}
+
+-(void) customizeAppearance{
+    
+    UIColor *darkBlue = [UIColor colorWithRed:10.0/255.0
+                                        green:17.0/255.0
+                                         blue:31.0/255.0
+                                        alpha:1];
+    UIColor *darkRed = [UIColor colorWithRed:168.0 / 255
+                                       green:11.0 / 255.0
+                                        blue:31.0 / 255.0
+                                       alpha:0.5];
+    UIColor *clearGrey = [UIColor colorWithRed:227.0 / 255
+                                         green:227.0 / 255.0
+                                          blue:227.0 / 255.0
+                                         alpha:1];
+    [[UITableViewHeaderFooterView appearance] setTintColor:darkBlue];
+    [[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
+        [[UIButton appearance] setTintColor:[UIColor orangeColor]];
+    [[UITableView appearance] setSectionIndexColor:darkRed];
+    
+    
 }
 @end
