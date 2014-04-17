@@ -374,7 +374,7 @@
 
 #pragma mark - IBActions
 - (IBAction)locateMe:(id)sender {
-    [self zoomToLocation:self.currentLocation radius:2000];
+    [self zoomToLocation:self.currentLocation radius:100000];
     
 }
 

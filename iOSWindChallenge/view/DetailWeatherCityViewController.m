@@ -96,13 +96,18 @@
     WindPredictionCell  *cellWindPrediction = [tableView dequeueReusableCellWithIdentifier:@"WindPredictionCell"];
     Wind * windPrediction = [self.windPredictions objectAtIndex:indexPath.row];
 
+    //  Background task for rotating
     
-    cellWindPrediction.windImageView.center = CGPointMake(100.0, 100.0);
-    //rotate rect
-    cellWindPrediction.windImageView.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS([windPrediction.degrees doubleValue])); //rotation in radians
+    dispatch_queue_t rotating = dispatch_queue_create("rotating", 0);
     
-    
-    
+    dispatch_async(rotating, ^{
+        cellWindPrediction.windImageView.center = CGPointMake(100.0, 100.0);
+        //rotate rect
+        
+        cellWindPrediction.windImageView.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS([windPrediction.degrees doubleValue])); //rotation in radians
+
+
+    });
     // Convert dt Epoch from NSString to NSTimeInterval
     NSTimeInterval seconds = [windPrediction.dt doubleValue];
     
@@ -112,7 +117,11 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd "];
     
-    cellWindPrediction.theTitle.text=[NSString stringWithFormat:@"%@    Speed %@",[dateFormatter stringFromDate:epochNSDate], windPrediction.speed];
+    cellWindPrediction.theTitle.text=[NSString stringWithFormat:@" %@    Speed %@",[dateFormatter stringFromDate:epochNSDate], windPrediction.speed];
+
+    
+    
+   
 
     return cellWindPrediction;
 }
@@ -139,12 +148,9 @@
                                                       
                                                       if (self.windPredictions.count >0 ) {
                                                           [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Found %i predictions",self.windPredictions.count ]];
-                                                          dispatch_async(dispatch_get_main_queue(), ^{
-                                                            [self.tableView reloadData];
-                                                          });
+                                                      
+                                                          [self.tableView reloadData];
 
-
-                                                          
                                                       }
                                                       else {
 
