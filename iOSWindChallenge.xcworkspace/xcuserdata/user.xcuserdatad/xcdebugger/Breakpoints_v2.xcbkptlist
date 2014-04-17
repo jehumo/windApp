@@ -136,12 +136,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSWindChallenge/view/DetailWeatherCityViewController.m"
-            timestampString = "419392449.079799"
+            timestampString = "419393946.453007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "168"
             endingLineNumber = "168"
-            landmarkName = "-loadWindPredictions"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "5">
             <Locations>
                <Location
@@ -182,12 +182,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSWindChallenge/view/DetailWeatherCityViewController.m"
-            timestampString = "419392449.079799"
+            timestampString = "419393946.453007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "161"
             endingLineNumber = "161"
-            landmarkName = "-loadWindPredictions"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -214,12 +214,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSWindChallenge/view/DetailWeatherCityViewController.m"
-            timestampString = "419392616.831732"
+            timestampString = "419393219.417013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -39,7 +39,7 @@
     [self.navigationController.navigationBar setHidden:NO];
     [self.navigationController setTitle:[NSString stringWithFormat:@"%@ forecast",self.selectedCity.name]];
     
-    
+    [self setTitle:[NSString stringWithFormat:@"Wind prediction for %@", self.selectedCity.name]];
     [self loadWindPredictions ];
 
     NSLog(@"Log Debug Trace ::: self.selectedCity.name : %@", self.selectedCity.name);
@@ -74,29 +74,29 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
-    
-    
-    
     WindPredictionCell  *cellWindPrediction = [tableView dequeueReusableCellWithIdentifier:@"WindPredictionCell"];
     Wind * windPrediction = [self.windPredictions objectAtIndex:indexPath.row];
-    cellWindPrediction.theTitle.text=windPrediction.speed;
-    
-//    City * city = [self.cities objectAtIndex:indexPath.row];
-    // Map into my City Object
-//    cell.theTitle.text = city.name;
-    //            //set point of rotation
-    //            imgViewLeft.center = CGPointMake(100.0, 100.0);
-    //
-    //            //rotate rect
-    //            annotationView.transform = CGAffineTransformMakeRotation([aCityAnnotation.cityData.wind.degrees doubleValue]); //rotation in radians
-    //
-    //            [leftCAV addSubview  :favoriteButton];
-    //            //[leftCAV addSubview : yourFirstLabel];
-    
-    
-    //            //[leftCAV addSubview : yourSecondLabel];
 
+    
+    cellWindPrediction.windImageView.center = CGPointMake(100.0, 100.0);
+    //rotate rect
+    cellWindPrediction.windImageView.transform = CGAffineTransformMakeRotation([windPrediction.degrees doubleValue]); //rotation in radians
+    
+    
+    
+    // Convert dt Epoch from NSString to NSTimeInterval
+    NSTimeInterval seconds = [windPrediction.dt doubleValue];
+    
+    // (Step 1) Create NSDate object
+    NSDate *epochNSDate = [[NSDate alloc] initWithTimeIntervalSince1970:seconds];
+    // (Step 2) Use NSDateFormatter to display epochNSDate in local time zone
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd "];
+    
+    cellWindPrediction.theTitle.text=[NSString stringWithFormat:@"%@    Wind Speed :%@",[dateFormatter stringFromDate:epochNSDate], windPrediction.speed];
+
+    
+    
     return cellWindPrediction;
 }
 #pragma mark - Restkit Setup

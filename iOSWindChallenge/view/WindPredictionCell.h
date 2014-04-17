@@ -11,5 +11,5 @@
 @interface WindPredictionCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *theTitle;
-@property (weak, nonatomic) IBOutlet UIImageView *imageCell;
+@property (weak, nonatomic) IBOutlet UIImageView * windImageView;
 @end
