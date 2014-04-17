@@ -99,42 +99,10 @@
     
     return cellWindPrediction;
 }
-#pragma mark - Restkit Setup
-
-- (void)configureSecondRestKit
-{
-    // initialize AFNetworking HTTPClient
-    NSURL *baseURL = [NSURL URLWithString:@"http://api.openweathermap.org/"];
-    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
-    
-    // initialize RestKit
-    RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
-    
-    // setup object mappings
-    // 1. Wind Mapping
-    RKObjectMapping * windMapping = [RKObjectMapping mappingForClass:[Wind class]];
-    [windMapping addAttributeMappingsFromDictionary:@{
-                                                      @"speed":@"speed",
-                                                      @"deg":@"degrees",
-                                                      @"dt":@"dt"
-                                                      }];
-  
-    // register mappings with the provider using a response descriptor
-    // api.openweathermap.org/data/2.5/forecast/daily?id=524901&cnt=15
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:windMapping
-                                                                                            method:RKRequestMethodGET
-                                                                                       pathPattern:@"data/2.5/forecast/daily"
-                                                                                           keyPath:@"list"
-                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
-    
-    [objectManager addResponseDescriptor:responseDescriptor];
-    
-}
 
 
 -(void) loadWindPredictions {
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
-    [self configureSecondRestKit];
     // Allocate a reachability object
     if([reach isReachable]) {
         
@@ -146,9 +114,6 @@
                                       };
         [SVProgressHUD show];
         
-        //http://api.openweathermap.org/data/2.5/forecast/daily?id=524901&lang=zh_cn
-        //http://api.openweathermap.org/2.5/forecast/daily?id=524901&mode=json
-        //http://api.openweathermap.org/data/2.5/forecast/daily?id=524901
         
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/data/2.5/forecast/daily"
                                                parameters:queryParams

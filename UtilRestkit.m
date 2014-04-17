@@ -43,15 +43,16 @@
                                                                                 toKeyPath:@"coordinate"
                                                                               withMapping:coordinateMapping]];
     
-    // 3. Wind Mapping
-    RKObjectMapping * windMapping = [RKObjectMapping mappingForClass:[Wind class]];
-    [windMapping addAttributeMappingsFromDictionary:@{
+    // 3. Wind Mapping. This mapping workd for both
+    RKObjectMapping * windPredictionsMapping = [RKObjectMapping mappingForClass:[Wind class]];
+    [windPredictionsMapping addAttributeMappingsFromDictionary:@{
                                                       @"speed":@"speed",
-                                                      @"deg":@"degrees"
+                                                      @"deg":@"degrees",
+                                                      @"dt":@"dt"
                                                       }];
     [cityMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"wind"
                                                                                 toKeyPath:@"wind"
-                                                                              withMapping:windMapping]];
+                                                                              withMapping:windPredictionsMapping]];
     
     
     // 4. Weather Mapping
@@ -80,12 +81,12 @@
     
     // setup object mappings
     // 1. Wind Mapping
-    RKObjectMapping * windPredictionsMapping = [RKObjectMapping mappingForClass:[Wind class]];
-    [windMapping addAttributeMappingsFromDictionary:@{
-                                                      @"speed":@"speed",
-                                                      @"deg":@"degrees",
-                                                      @"dt":@"dt"
-                                                      }];
+//    RKObjectMapping * windPredictionsMapping = [RKObjectMapping mappingForClass:[Wind class]];
+//    [windMapping addAttributeMappingsFromDictionary:@{
+//                                                      @"speed":@"speed",
+//                                                      @"deg":@"degrees",
+//                                                      @"dt":@"dt"
+//                                                      }];
     
     // register mappings with the provider using a response descriptor
     // api.openweathermap.org/data/2.5/forecast/daily?id=524901&cnt=15

@@ -283,12 +283,12 @@
 		CEB76E2018F9B04B007D8421 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CEB76E2118F9B087007D8421 /* ViewController.h */,
+				CEB76E2218F9B087007D8421 /* ViewController.m */,
 				CE527A7D18FDB63D0046B7B3 /* WindPredictionCell.h */,
 				CE527A7E18FDB63D0046B7B3 /* WindPredictionCell.m */,
 				CEB76E2518F9B5A9007D8421 /* DetailWeatherCityViewController.h */,
 				CEB76E2618F9B5A9007D8421 /* DetailWeatherCityViewController.m */,
-				CEB76E2118F9B087007D8421 /* ViewController.h */,
-				CEB76E2218F9B087007D8421 /* ViewController.m */,
 				CE84454118FE5CF1001C4C2E /* Annotation Views */,
 			);
 			name = View;

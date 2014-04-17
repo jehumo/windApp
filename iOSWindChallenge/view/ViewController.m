@@ -48,11 +48,14 @@
     [self.locationManager startUpdatingLocation];
     
     self.model = [AGTSimpleCoreDataStack coreDataStackWithModelName:@"Model"];
-    
+    UtilRestkit * restkit = [[UtilRestkit alloc]init];
+    [restkit configureRestKit];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    
+    
     
     [self.navigationController.navigationBar setHidden:YES];
     [self.theSearchBar setHidden:NO];
