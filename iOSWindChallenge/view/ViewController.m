@@ -11,7 +11,6 @@
 #import "Coordinate.h"
 #import "Weather.h"
 #import "Wind.h"
-#import "CityCell.h"
 #import "DetailWeatherCityViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import <Reachability/Reachability.h>
@@ -20,6 +19,7 @@
 #import "UserHereTrackingAnnotation.h"
 #import "CityAnnotation.h"
 #import "JHMCity.h"
+#import "UtilRestkit.h"
 
 @interface ViewController ()
 
@@ -27,13 +27,9 @@
 @property (nonatomic,strong) City * selectedCityForecast;
 @property (nonatomic,strong)  CLLocation * currentLocation;
 @property (nonatomic) CLLocationCoordinate2D userLocation;
-@property (nonatomic) CLLocationDistance distanceToFarestCity;
 @property (nonatomic,strong)  CLLocationManager * locationManager;
 @property (strong, nonatomic) NSArray * cities;
-@property (nonatomic, assign) MKCoordinateRegion boundingRegion;
 @property (nonatomic,strong) NSMutableArray * CityVenues;
-@property (nonatomic,strong) NSMutableArray * closestCityVenues;
-//@property (nonatomic,strong) CLLocation * hereLocation;
 @property (nonatomic,strong) CLLocation * foundLocation;
 @property (nonatomic, strong) MKLocalSearch *localSearch;
 
@@ -62,13 +58,7 @@
     [self.theSearchBar setHidden:NO];
     [self.theSearchBar setDelegate:self];
     
-    
-//    [self.viewTableContainer setHidden:NO];
-//    [self.viewMapContainer setHidden:YES];
-    
-    
-    [self.tableView setDelegate:self];
-    [self.tableView setDataSource:self];
+
     
     // Setting delegate
     self.mapView.delegate = self;
@@ -101,9 +91,6 @@
         [self.mapView addAnnotation:cityReturnedAnnotation];
         
     }
-
-
-    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -190,43 +177,7 @@
                                                           reuseIdentifier:identifier];
             
             annotationView.image = [UIImage imageNamed:@"pin_yellow"];
-            
-            
-            
-
-            
-            
-            
-//            UIButton * favoriteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//            favoriteButton.frame = CGRectMake(0, 0, 23, 23);
-//            [favoriteButton setBackgroundImage:[UIImage imageNamed:@"not_fav_yet"] forState:UIControlStateNormal];
-//            [favoriteButton setBackgroundImage:[UIImage imageNamed:@"fav"] forState:UIControlStateSelected | UIControlStateHighlighted | UIControlEventTouchUpInside];
-//            favoriteButton.tag = [aCityAnnotation.cityData.idCity integerValue];
-            
-            
-//            [favoriteButton addTarget:self
-//                               action:@selector(saveFavorite:)];
-            
-            
-
-//            [favoriteButton addTarget:self action:@selector(buttonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
-
-             
-            //annotationView.leftCalloutAccessoryView = favoriteButton;
-//            //set point of rotation
-//            imgViewLeft.center = CGPointMake(100.0, 100.0);
-//            
-//            //rotate rect
-//            annotationView.transform = CGAffineTransformMakeRotation([aCityAnnotation.cityData.wind.degrees doubleValue]); //rotation in radians
-//            
-//            [leftCAV addSubview  :favoriteButton];
-//            //[leftCAV addSubview : yourFirstLabel];
-            
-            
-//            //[leftCAV addSubview : yourSecondLabel];
-            
-
-            
+     
             //Left
             UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
             leftButton.frame = CGRectMake(0, 0, 23, 23);
@@ -253,21 +204,7 @@
     return nil;
 }
 
-//- (IBAction) buttonTouchUpInside:(id)sender {
-//    // MyOwnButton *buttonClicked = (MyOwnButton *)sender;
-//    //do as you please with buttonClicked.argOne
-//    NSLog(@"botton clickado:: self.selectedCityForecast :: %i", [sender tag]);
-//    
-//    JHMCity * newCity = [JHMCity cityWithIdCity:[NSNumber numberWithInt:[sender tag]] 
-//                                        context:self.model.context];
-//        
-//        
-//        [self.model saveWithErrorBlock:^(NSError *error) {
-//            NSLog(@"Error saving %s \n\n %@",__func__, error);
-//        }];
-//  
-//
-//}
+
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)annView calloutAccessoryControlTapped:(UIControl *)control
 {
@@ -361,19 +298,11 @@
 -(void)searchBarSearchButtonClicked:(UISearchBar *)theSearchBar
 {
     [theSearchBar resignFirstResponder];
-//    [self.tableView setHidden:NO];
     
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
-    
-    // Configuramos los dos bloques de código para los cambios de estado
-    // de la conectividad
-    // En el main thread, capturamos los eventos.
-    
     // Allocate a reachability object
-    
     if([reach isReachable]) {
         
-        [self configureRestKit];
         
         
         NSDictionary *queryParams = @{
@@ -431,7 +360,6 @@
                                                       } else {
                                                           //[self.tableView setHidden:NO];
                                                           dispatch_async(dispatch_get_main_queue(), ^{
-                                                              [self.tableView reloadData];
                                                               [SVProgressHUD showErrorWithStatus:
                                                                [NSString stringWithFormat:
                                                                 @"The server could not find any city named with %@",self.theSearchBar.text] ];
@@ -451,119 +379,6 @@
         
     }
 }
-
-
-- (void)configureRestKit
-{
-    // initialize AFNetworking HTTPClient
-    NSURL *baseURL = [NSURL URLWithString:@"http://api.openweathermap.org/"];
-    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
-    
-    // initialize RestKit
-    RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
-    
-    // setup object mappings
-    // 1. CityMapping
-    RKObjectMapping *cityMapping = [RKObjectMapping mappingForClass:[City class]];
-    [cityMapping addAttributeMappingsFromArray:@[@"name"]];
-    [cityMapping addAttributeMappingsFromDictionary:@{@"id":@"idCity" }];
-
-    // 2. Coordinate Mapping
-    RKObjectMapping *coordinateMapping = [RKObjectMapping mappingForClass:[Coordinate class]];
-    [coordinateMapping addAttributeMappingsFromArray:@[@"lat", @"lon"]];
-    
-    // Linking abd defining relationship mapping
-    [cityMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"coord"
-                                                                                toKeyPath:@"coordinate"
-                                                                              withMapping:coordinateMapping]];
-    
-    // 3. Wind Mapping
-    RKObjectMapping * windMapping = [RKObjectMapping mappingForClass:[Wind class]];
-    [windMapping addAttributeMappingsFromDictionary:@{
-                                                         @"speed":@"speed",
-                                                        @"deg":@"degrees"
-                                                            }];
-    [cityMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"wind"
-                                                                                toKeyPath:@"wind"
-                                                                              withMapping:windMapping]];
-    
-
-    // 4. Weather Mapping
-    RKObjectMapping * weatherMapping = [RKObjectMapping  mappingForClass:[Weather class]];
-    [weatherMapping addAttributeMappingsFromDictionary:@{
-                                                        //@"temp": @"temperature",
-                                                        @"main":@"mainDescription",
-                                                        @"icon":@"icon"
-                                                         }];
-    [cityMapping addPropertyMapping:[RKRelationshipMapping  relationshipMappingFromKeyPath:@"weather"
-                                                                                toKeyPath:@"weather"
-                                                                              withMapping:weatherMapping]];
-    
-
-    
-    
-    
-
-    
-    // register mappings with the provider using a response descriptor
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:cityMapping
-                                                                                            method:RKRequestMethodGET
-                                                                                       pathPattern:@"data/2.5/find"
-                                                                                           keyPath:@"list"
-                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
-    
-    [objectManager addResponseDescriptor:responseDescriptor];
-    
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return self.cities.count;
-    
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-//    CityCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CityCell"];
-//    self.selectedCity= [self.cities objectAtIndex:indexPath.row];
-    
-//    [self.viewTableContainer setHidden:YES];
-//    [self.viewMapContainer setHidden:NO];
-
-    
- //   CLLocation * currentCityLocation = [[CLLocation alloc] initWithLatitude:[self.selectedCity.coordinate.lat doubleValue]
- //                                       longitude:[self.selectedCity.coordinate.lon doubleValue]];
-    
-    
- //   PFGeoPoint * geoPoint = [PFGeoPoint geoPointWithLatitude:[self.selectedCity.coordinate.lat doubleValue]
- //                                                  longitude:[self.selectedCity.coordinate.lon doubleValue]];
- //   CityAnnotation * currentCityAnnotation = [[CityAnnotation alloc] initWithUserGeoPoint:geoPoint];
-    
-    
-    
-//    self.selectedCity.distance = [self.currentLocation distanceFromLocation:currentCityLocation];
-    
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self.mapView addAnnotation:currentCityLocation];
-//        [self zoomToLocation:self.currentLocation radius:self.selectedCity.distance];
-//    });
-    
-    
-//    [self performSegueWithIdentifier:@"showDetailViewController" sender:self];
-    
-}
-
-
 /**
  * This function prepare the segue, by loading the parameters properly.
  * (Prepare the specific segue to be loaded by comparing the segue identifier.)
@@ -576,20 +391,6 @@
         DetailWeatherCityViewController * detailViewController = (DetailWeatherCityViewController *) segue.destinationViewController;
         detailViewController.selectedCity   = self.selectedCityForecast;
     }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 47;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    CityCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityCell"];
-    City * city = [self.cities objectAtIndex:indexPath.row];
-    // Map into my City Object
-    cell.theTitle.text = city.name;
-    
-    return cell;
 }
 
 #pragma mark - IBActions

@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CityCell : UITableViewCell
+@interface WindPredictionCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *theTitle;
-@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
-
 @property (weak, nonatomic) IBOutlet UIImageView *imageCell;
 @end

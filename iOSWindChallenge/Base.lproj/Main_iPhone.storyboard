@@ -132,61 +132,40 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="aJh-mR-p17">
-                                        <rect key="frame" x="0.0" y="440" width="320" height="416"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CityCell" id="anW-bv-4fH" userLabel="Cell - CityCell" customClass="CityCell">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WindPredictionCell" id="anW-bv-4fH" userLabel="Cell - WindPredictionCell" customClass="WindPredictionCell">
                                                 <rect key="frame" x="0.0" y="65" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="anW-bv-4fH" id="pTA-oh-Yvp">
                                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGs-Y0-aBx">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wind Speed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGs-Y0-aBx">
                                                             <rect key="frame" x="8" y="11" width="189" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <color key="textColor" red="0.2470588235" green="0.27450980390000002" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1731.9 Km" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3GO-id-PVQ">
-                                                            <rect key="frame" x="142" y="11" width="54" height="21"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wind" translatesAutoresizingMaskIntoConstraints="NO" id="7Zb-01-hEj">
+                                                            <rect key="frame" x="222" y="7" width="28" height="29"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
-                                                            <color key="textColor" red="0.2470588235" green="0.27450980390000002" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="weather" translatesAutoresizingMaskIntoConstraints="NO" id="G1F-7U-AXg" userLabel="Image View - icon Weather">
-                                                            <rect key="frame" x="255" y="12" width="56" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="30" id="219-vP-srb"/>
-                                                            </constraints>
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="dGs-Y0-aBx" firstAttribute="bottom" secondItem="3GO-id-PVQ" secondAttribute="bottom" id="2Ih-0K-ucz"/>
                                                         <constraint firstAttribute="trailing" secondItem="dGs-Y0-aBx" secondAttribute="trailing" constant="90" id="69C-vk-HPo"/>
-                                                        <constraint firstAttribute="trailing" secondItem="3GO-id-PVQ" secondAttribute="trailing" constant="91" id="73G-oN-EJX"/>
-                                                        <constraint firstItem="3GO-id-PVQ" firstAttribute="top" secondItem="dGs-Y0-aBx" secondAttribute="top" id="9l7-1l-xdO"/>
-                                                        <constraint firstItem="G1F-7U-AXg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pTA-oh-Yvp" secondAttribute="top" constant="12" id="HFu-lJ-VpU"/>
-                                                        <constraint firstAttribute="bottom" secondItem="G1F-7U-AXg" secondAttribute="bottom" constant="31" id="IQY-aJ-VVF"/>
-                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="G1F-7U-AXg" secondAttribute="bottom" constant="31" id="Nst-V0-SS2"/>
                                                         <constraint firstItem="dGs-Y0-aBx" firstAttribute="top" secondItem="pTA-oh-Yvp" secondAttribute="top" constant="11" id="RR7-Lv-LY0"/>
                                                         <constraint firstItem="dGs-Y0-aBx" firstAttribute="centerY" secondItem="pTA-oh-Yvp" secondAttribute="centerY" id="VnE-vq-n9M"/>
-                                                        <constraint firstItem="G1F-7U-AXg" firstAttribute="top" secondItem="pTA-oh-Yvp" secondAttribute="top" constant="12" id="aUA-lk-pCt"/>
                                                         <constraint firstItem="dGs-Y0-aBx" firstAttribute="leading" secondItem="pTA-oh-Yvp" secondAttribute="leading" constant="8" id="cna-vT-ND2"/>
-                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="G1F-7U-AXg" secondAttribute="trailing" constant="20" symbolic="YES" id="dKp-JL-uFj"/>
-                                                        <constraint firstItem="G1F-7U-AXg" firstAttribute="leading" secondItem="pTA-oh-Yvp" secondAttribute="leading" constant="255" id="s5d-Gf-Mxr"/>
-                                                        <constraint firstAttribute="trailing" secondItem="G1F-7U-AXg" secondAttribute="trailing" constant="2" id="zOa-Jg-B4R"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
-                                                    <outlet property="distanceLabel" destination="3GO-id-PVQ" id="xs2-6W-eaa"/>
-                                                    <outlet property="imageCell" destination="G1F-7U-AXg" id="BYD-NF-P6K"/>
+                                                    <outlet property="imageCell" destination="7Zb-01-hEj" id="Ib0-hM-mza"/>
                                                     <outlet property="theTitle" destination="dGs-Y0-aBx" id="nbt-Rd-Sc2"/>
                                                 </connections>
                                             </tableViewCell>
@@ -199,6 +178,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Y6V-hv-R4H"/>
+                    <connections>
+                        <outlet property="tableView" destination="aJh-mR-p17" id="ju4-yx-f6i"/>
+                        <outlet property="viewTableContainer" destination="Whi-rc-TYH" id="Wxf-75-2YQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bVU-nu-hkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,7 +190,7 @@
     </scenes>
     <resources>
         <image name="localizacion" width="37" height="37"/>
-        <image name="weather" width="57" height="13"/>
+        <image name="wind" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

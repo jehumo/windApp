@@ -9,8 +9,11 @@
 #import "ViewController.h"
 #import "City.h"
 
-@interface DetailWeatherCityViewController : ViewController
+@interface DetailWeatherCityViewController : ViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) City * selectedCity;
 
+@property (weak, nonatomic) IBOutlet UIView *viewTableContainer;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
+

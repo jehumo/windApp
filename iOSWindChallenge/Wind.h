@@ -12,4 +12,5 @@
 //wind
 @property (nonatomic, strong) NSString * speed;
 @property (nonatomic, strong) NSString * degrees;
+@property (nonatomic, strong) NSString * dt;
 @end

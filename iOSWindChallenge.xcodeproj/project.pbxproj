@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		71773BC318FC18A4009136DE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71773BC218FC18A4009136DE /* CoreData.framework */; };
 		C33BD83CD2474C59BF1D8988 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA261B015A3545C3867DFDD4 /* libPods.a */; };
-		CE527A7F18FDB63D0046B7B3 /* CityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE527A7E18FDB63D0046B7B3 /* CityCell.m */; };
+		CE527A7F18FDB63D0046B7B3 /* WindPredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE527A7E18FDB63D0046B7B3 /* WindPredictionCell.m */; };
 		CE527A8118FDD4530046B7B3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE527A8018FDD4530046B7B3 /* CoreLocation.framework */; };
 		CE84454018FE5CEC001C4C2E /* UserHereTrackingAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE84453F18FE5CEC001C4C2E /* UserHereTrackingAnnotation.m */; };
 		CE84454418FE5E4C001C4C2E /* CityAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE84454318FE5E4C001C4C2E /* CityAnnotation.m */; };
 		CE84454718FE62D3001C4C2E /* UserTrackingAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE84454618FE62D3001C4C2E /* UserTrackingAnnotation.m */; };
+		CE84454F18FF6757001C4C2E /* UtilRestkit.m in Sources */ = {isa = PBXBuildFile; fileRef = CE84454E18FF6757001C4C2E /* UtilRestkit.m */; };
 		CE9F328C18FD7EB0007CC21E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F328B18FD7EB0007CC21E /* City.m */; };
 		CE9F328F18FD8FB6007CC21E /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F328E18FD8FB6007CC21E /* Coordinate.m */; };
 		CE9F329218FD9652007CC21E /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F329118FD9652007CC21E /* Weather.m */; };
@@ -61,8 +62,8 @@
 		71773BC218FC18A4009136DE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8F2402166A36415CAE25014E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		AA261B015A3545C3867DFDD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE527A7D18FDB63D0046B7B3 /* CityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityCell.h; sourceTree = "<group>"; };
-		CE527A7E18FDB63D0046B7B3 /* CityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityCell.m; sourceTree = "<group>"; };
+		CE527A7D18FDB63D0046B7B3 /* WindPredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindPredictionCell.h; sourceTree = "<group>"; };
+		CE527A7E18FDB63D0046B7B3 /* WindPredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindPredictionCell.m; sourceTree = "<group>"; };
 		CE527A8018FDD4530046B7B3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CE84453E18FE5CEC001C4C2E /* UserHereTrackingAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHereTrackingAnnotation.h; sourceTree = "<group>"; };
 		CE84453F18FE5CEC001C4C2E /* UserHereTrackingAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHereTrackingAnnotation.m; sourceTree = "<group>"; };
@@ -70,6 +71,8 @@
 		CE84454318FE5E4C001C4C2E /* CityAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityAnnotation.m; sourceTree = "<group>"; };
 		CE84454518FE62D3001C4C2E /* UserTrackingAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTrackingAnnotation.h; sourceTree = "<group>"; };
 		CE84454618FE62D3001C4C2E /* UserTrackingAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTrackingAnnotation.m; sourceTree = "<group>"; };
+		CE84454D18FF6757001C4C2E /* UtilRestkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilRestkit.h; sourceTree = SOURCE_ROOT; };
+		CE84454E18FF6757001C4C2E /* UtilRestkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilRestkit.m; sourceTree = SOURCE_ROOT; };
 		CE9F328A18FD7EB0007CC21E /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = model/City.h; sourceTree = "<group>"; };
 		CE9F328B18FD7EB0007CC21E /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = City.m; path = model/City.m; sourceTree = "<group>"; };
 		CE9F328D18FD8FB6007CC21E /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coordinate.h; path = model/Coordinate.h; sourceTree = "<group>"; };
@@ -280,8 +283,8 @@
 		CEB76E2018F9B04B007D8421 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CE527A7D18FDB63D0046B7B3 /* CityCell.h */,
-				CE527A7E18FDB63D0046B7B3 /* CityCell.m */,
+				CE527A7D18FDB63D0046B7B3 /* WindPredictionCell.h */,
+				CE527A7E18FDB63D0046B7B3 /* WindPredictionCell.m */,
 				CEB76E2518F9B5A9007D8421 /* DetailWeatherCityViewController.h */,
 				CEB76E2618F9B5A9007D8421 /* DetailWeatherCityViewController.m */,
 				CEB76E2118F9B087007D8421 /* ViewController.h */,
@@ -295,6 +298,8 @@
 		CEB76E2418F9B09C007D8421 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE84454D18FF6757001C4C2E /* UtilRestkit.h */,
+				CE84454E18FF6757001C4C2E /* UtilRestkit.m */,
 			);
 			name = Controllers;
 			path = controllers;
@@ -436,7 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE527A7F18FDB63D0046B7B3 /* CityCell.m in Sources */,
+				CE527A7F18FDB63D0046B7B3 /* WindPredictionCell.m in Sources */,
 				CEA92A4C18FAF1D0001673B1 /* _JHMAlert.m in Sources */,
 				CEB76DF818F9A9B0007D8421 /* AppDelegate.m in Sources */,
 				CEA929E218FA9C97001673B1 /* AGTSimpleCoreDataStack.m in Sources */,
@@ -454,6 +459,7 @@
 				CEB76E2718F9B5A9007D8421 /* DetailWeatherCityViewController.m in Sources */,
 				CE9F329518FDA08A007CC21E /* Wind.m in Sources */,
 				CE9F328F18FD8FB6007CC21E /* Coordinate.m in Sources */,
+				CE84454F18FF6757001C4C2E /* UtilRestkit.m in Sources */,
 				CE84454018FE5CEC001C4C2E /* UserHereTrackingAnnotation.m in Sources */,
 				CEB76E2318F9B087007D8421 /* ViewController.m in Sources */,
 				CEB76DF418F9A9B0007D8421 /* main.m in Sources */,

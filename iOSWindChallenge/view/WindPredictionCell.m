@@ -6,9 +6,9 @@
 //
 //
 
-#import "CityCell.h"
+#import "WindPredictionCell.h"
 
-@implementation CityCell
+@implementation WindPredictionCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
