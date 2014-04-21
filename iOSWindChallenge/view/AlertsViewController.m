@@ -12,7 +12,8 @@
 #import "JHMAlert.h"
 #import "AddAlertViewController.h"
 @interface AlertsViewController ()
-@property (strong, nonatomic) NSArray * aletsForCity;
+@property (strong, nonatomic) NSArray * alertsFetchedForCity;
+
 @end
 
 @implementation AlertsViewController
@@ -40,12 +41,10 @@
                                               inManagedObjectContext:self.model.context];
     [fetchRequest setEntity:entity];
     NSError *error;
-    NSArray *fetchedObjects = [self.model.context executeFetchRequest:fetchRequest error:&error];
-    for (JHMAlert * alert in fetchedObjects) {
-        NSLog(@"Name: %@", alert.speedTrigger);
-        
-    }
+    self.alertsFetchedForCity = [self.model.context executeFetchRequest:fetchRequest error:&error];
 
+    [self.tableView reloadData];
+    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -64,7 +63,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [[[UIApplication sharedApplication] scheduledLocalNotifications] count];
+  //  return [[[UIApplication sharedApplication] scheduledLocalNotifications] count];
+
+    return [self.alertsFetchedForCity count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -72,14 +73,17 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    JHMAlert * alert  = (JHMAlert *) [self.alertsFetchedForCity objectAtIndex:indexPath.row];
     // Get list of local notifications
-    NSArray *localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
-    UILocalNotification *localNotification = [localNotifications objectAtIndex:indexPath.row];
-    
+//    NSArray *localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+//    UILocalNotification *localNotification = [localNotifications objectAtIndex:indexPath.row];
+//    
     // Display notification info
-    [cell.textLabel setText:localNotification.alertBody];
-    [cell.detailTextLabel setText:[localNotification.fireDate description]];
-    
+//    [cell.textLabel setText:localNotification.alertBody];
+//    [cell.detailTextLabel setText:[localNotification.fireDate description]];
+  
+    [cell.textLabel setText:alert.name];
+    [cell.detailTextLabel setText:[NSString stringWithFormat:@"Between %i and %i degrees", [alert.degreesMin intValue],[alert.degreesMax intValue]]];
     return cell;
 }
 

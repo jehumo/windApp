@@ -20,6 +20,8 @@
 #import "CityAnnotation.h"
 #import "JHMCity.h"
 #import "UtilRestkit.h"
+#import "WeatherFetcher.h"
+
 
 @interface ViewController ()
 
@@ -41,6 +43,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onBackgroundUpdate:)
+                                                 name:@"WeatherUpdated"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onActive:)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+
+    
+    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
@@ -98,6 +113,56 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+
+#pragma mark - Background update
+
+- (void)onBackgroundUpdate:(NSNotification *)notification {
+    WeatherResult *result = [notification object];
+    [self updateTemperature:result.temperature
+                lastUpdated:result.updatedAt];
+}
+- (BOOL)needsRefresh:(NSDate *)lastUpdated {
+    NSTimeInterval interval = abs([lastUpdated timeIntervalSinceNow]);
+    return abs(interval) > 15;
+}
+- (void)loadFromCache {
+    WeatherResult *cachedResult = [[WeatherFetcher sharedInstance] cachedResult];
+    
+    if (cachedResult) {
+        self.theSearchBar.text = cachedResult.location;
+        [self updateTemperature:cachedResult.temperature
+                    lastUpdated:cachedResult.updatedAt];
+        
+        if ([self needsRefresh:cachedResult.updatedAt] && [[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
+            [self searchForLocation:cachedResult.location];
+        }
+    }
+}
+
+- (void)searchForLocation:(NSString *)location {
+    
+
+    
+    [[WeatherFetcher sharedInstance] fetchWeatherForLocation:location completion:^(WeatherResult *result) {
+        [SVProgressHUD show];
+        [self updateTemperature:result.temperature
+                    lastUpdated:result.updatedAt];
+    }];
+}
+- (void)onActive:(NSNotification *)notification {
+    [self loadFromCache];
+}
+
+- (void)updateTemperature:(CGFloat)temp lastUpdated:(NSDate *)updatedAt {
+    
+    [SVProgressHUD showSuccessWithStatus:@"New Favorite Added"];
+    
+    [self zoomToLocation:self.currentLocation radius:100000];
+    
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%.1fºF", temp];
+    self.updatedLabel.text = [NSString stringWithFormat:@"Last updated at %@", updatedAt];
 }
 
 #pragma mark - CLLocationManagerDelegate

@@ -11,17 +11,78 @@
 #import <CoreData/CoreData.h>
 #import "JHMWindDirectionsCatalog.h"
 #import "JHMCity.h"
+#import "WeatherFetcher.h"
 
 @implementation AppDelegate
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
     // Create a custom interface with the color of piksel logo
     [self customizeAppearance];
+    
+    
+    // only for iOS 7, not valid for the test [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    
+    // Handle launching from a notification
+    UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (locationNotification) {
+        // Set icon badge number to zero
+        application.applicationIconBadgeNumber = 0;
+    }
+    
+    
     return YES;
 }
-							
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    // 1. Load all the alerts and ask to the service if one city of the Entity alert, has a wind speed greater than the one that was defined by the user in his specific direction
+    
+    UIApplicationState state = [application applicationState];
+    
+    // Only show the alert when the App is active
+    if (state == UIApplicationStateActive) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wind Alert!"
+                                                        message:notification.alertBody
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    // Always request to reload the view with posible alerts
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData" object:self];
+    
+    // Set icon badge number to zero
+    application.applicationIconBadgeNumber = 0;
+}
+
+
+// This only works with iOS 7.
+//- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+//    NSLog(@"perform Background Fetch...");
+//    
+//    WeatherResult *cachedResult = [[WeatherFetcher sharedInstance] cachedResult];
+//    if (cachedResult) {
+//        NSLog(@"background updating weather for %@", cachedResult.location);
+//        [[WeatherFetcher sharedInstance] fetchWeatherForLocation:cachedResult.location
+//                                                      completion:^(WeatherResult *result) {
+//                                                          [application setApplicationIconBadgeNumber:1];
+//                                                          [[NSNotificationCenter defaultCenter] postNotificationName:@"WeatherUpdated"
+//                                                                                                              object:result];
+//                                                          completionHandler(UIBackgroundFetchResultNewData);
+//                                                      }];
+//    } else {
+//        NSLog(@"No location saved, disabling background fetch...");
+//        [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
+//        completionHandler(UIBackgroundFetchResultNoData);
+//    }
+//    
+//}
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -58,15 +119,10 @@
                                        green:11.0 / 255.0
                                         blue:31.0 / 255.0
                                        alpha:0.5];
-    UIColor *clearGrey = [UIColor colorWithRed:227.0 / 255
-                                         green:227.0 / 255.0
-                                          blue:227.0 / 255.0
-                                         alpha:1];
     [[UITableViewHeaderFooterView appearance] setTintColor:darkBlue];
     [[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
-        [[UIButton appearance] setTintColor:[UIColor orangeColor]];
+    [[UIButton appearance] setTintColor:[UIColor orangeColor]];
     [[UITableView appearance] setSectionIndexColor:darkRed];
-    
     
 }
 @end

@@ -7,13 +7,15 @@
 //
 #define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
+
 #import "AddAlertViewController.h"
 #import "JHMAlert.h"
 #import "JHMCity.h"
 #import "SVProgressHUD.h"
 
 @interface AddAlertViewController ()
-
+@property (nonatomic, strong) NSString * alertName;
+@property (nonatomic, strong) JHMAlert * alert;
 @end
 
 @implementation AddAlertViewController
@@ -94,23 +96,49 @@
         
         NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        NSNumber * speed = [f numberFromString:self.speedAlertTextField.text];
         
         
         JHMCity * city = (JHMCity *) [fetchedObjects objectAtIndex:0];
-        
-        JHMAlert * newAlert = [JHMAlert alertAnyDirectionWithName:nil
-                                                         withCity:city
-                                                     speedTrigger:speed
+        self.alertName = [NSString stringWithFormat:@"%@ greater than %@",city.name,self.speedAlertTextField.text];
+        self.alert = [JHMAlert alertAnyDirectionWithName:self.alertName                                                         withCity:city
+                                                     speedTrigger:[f numberFromString:self.speedAlertTextField.text]                                                       minDegrees:[f numberFromString:self.minLabel.text]
+                                                       maxDegrees:[f numberFromString:self.maxLabel.text]
                                                           context:self.model.context];
         [self.model saveWithErrorBlock:^(NSError *error) {
             NSLog(@"Error saving %s \n\n %@",__func__, error);
         }];
         
+        [self scheduleNotification];
+        
         [SVProgressHUD showSuccessWithStatus:@"New Alert Added"];
 
     }
     
+}
+- (void)scheduleNotification {
+	
+    
+	Class cls = NSClassFromString(@"UILocalNotification");
+	if (cls != nil) {
+		
+		UILocalNotification *notif = [[cls alloc] init];
+		notif.fireDate = [NSDate date];
+		notif.timeZone = [NSTimeZone defaultTimeZone];
+		
+		notif.alertBody = [NSString stringWithFormat:@"We have a wind alert for you, %@", self.alert.name ];
+		notif.alertAction = @"Show me";
+		notif.soundName = UILocalNotificationDefaultSoundName;
+		notif.applicationIconBadgeNumber = 1;
+		
+        notif.repeatInterval = NSMinuteCalendarUnit;
+		
+		NSDictionary *userDict = [NSDictionary dictionaryWithObject:self.alertName
+                                                             forKey:@"PERIODIC_ALERT"];
+		notif.userInfo = userDict;
+		
+		[[UIApplication sharedApplication] scheduleLocalNotification:notif];
+
+	}
 }
 
 

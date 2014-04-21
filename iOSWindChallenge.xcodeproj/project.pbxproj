@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		714AF5E019053A0100061BA2 /* WeatherFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 714AF5DF19053A0100061BA2 /* WeatherFetcher.m */; };
 		71773BC318FC18A4009136DE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71773BC218FC18A4009136DE /* CoreData.framework */; };
 		C33BD83CD2474C59BF1D8988 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA261B015A3545C3867DFDD4 /* libPods.a */; };
 		CE527A7F18FDB63D0046B7B3 /* WindPredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE527A7E18FDB63D0046B7B3 /* WindPredictionCell.m */; };
@@ -82,6 +83,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		714AF5DE19053A0100061BA2 /* WeatherFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherFetcher.h; sourceTree = SOURCE_ROOT; };
+		714AF5DF19053A0100061BA2 /* WeatherFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherFetcher.m; sourceTree = SOURCE_ROOT; };
 		71773BC218FC18A4009136DE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8F2402166A36415CAE25014E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		AA261B015A3545C3867DFDD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -405,6 +408,8 @@
 			children = (
 				CE84454D18FF6757001C4C2E /* UtilRestkit.h */,
 				CE84454E18FF6757001C4C2E /* UtilRestkit.m */,
+				714AF5DE19053A0100061BA2 /* WeatherFetcher.h */,
+				714AF5DF19053A0100061BA2 /* WeatherFetcher.m */,
 			);
 			name = Controllers;
 			path = controllers;
@@ -483,6 +488,11 @@
 					};
 					CEB76DE318F9A9AF007D8421 = {
 						DevelopmentTeam = A7WQE96FSS;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					CEB76E0718F9A9B0007D8421 = {
 						TestTargetID = CEB76DE318F9A9AF007D8421;
@@ -596,6 +606,7 @@
 				CEA92A4E18FAF1D0001673B1 /* _JHMNamedEntity.m in Sources */,
 				CE9F329218FD9652007CC21E /* Weather.m in Sources */,
 				CE9F328C18FD7EB0007CC21E /* City.m in Sources */,
+				714AF5E019053A0100061BA2 /* WeatherFetcher.m in Sources */,
 				CEA929E518FAA2DE001673B1 /* Model.xcdatamodeld in Sources */,
 				CEA92A5018FAF1D0001673B1 /* JHMAlert.m in Sources */,
 				CE84454718FE62D3001C4C2E /* UserTrackingAnnotation.m in Sources */,
@@ -824,7 +835,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSWindChallenge/iOSWindChallenge-Prefix.pch";
 				INFOPLIST_FILE = "iOSWindChallenge/iOSWindChallenge-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -841,7 +852,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSWindChallenge/iOSWindChallenge-Prefix.pch";
 				INFOPLIST_FILE = "iOSWindChallenge/iOSWindChallenge-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -899,6 +910,7 @@
 				CEADAD3718FFCD5A00D51D06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CEB76DDF18F9A9AF007D8421 /* Build configuration list for PBXProject "iOSWindChallenge" */ = {
 			isa = XCConfigurationList;

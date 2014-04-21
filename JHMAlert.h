@@ -6,6 +6,8 @@
 +(instancetype) alertAnyDirectionWithName:(NSString *) aName
                                  withCity:(JHMCity *) cityWithAlert
                  speedTrigger:(NSNumber *)aSpeed
+                                minDegrees:(NSNumber *) minDegrees
+                               maxDegrees:(NSNumber *) maxDegrees
                       context:(NSManagedObjectContext *) aContext;
 
 

@@ -20,5 +20,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *theSearchBar;
 
 @property (weak, nonatomic) IBOutlet UIView *viewMapContainer;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *updatedLabel;
 - (IBAction)locateMe:(id)sender;
 @end
