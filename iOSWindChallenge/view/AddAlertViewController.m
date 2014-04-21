@@ -23,6 +23,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.minLabel.text=@"0";
+    self.maxLabel.text=@"359";
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -47,7 +50,7 @@
     NSInteger val = lround(self.minSelector.value);
     self.minLabel.text = [NSString stringWithFormat:@"%d",val];
 
-
+    
     
     self.minWindImageView.center = CGPointMake(100.0, 100.0);
     //rotate rect
@@ -73,63 +76,84 @@
 - (IBAction)saveAlert:(id)sender {
     
     // Validations and save into Core Data
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"City"
-                                              inManagedObjectContext:self.model.context];
-    [fetchRequest setEntity:entity];
-    
-    NSPredicate * predicateByIdCity = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idCity=%@",self.selectedCity.idCity]];
-    
-    [fetchRequest setPredicate:predicateByIdCity];
-    
-    NSError *error;
-    NSArray *fetchedObjects = [self.model.context executeFetchRequest:fetchRequest error:&error];
-        
-
-    if ((fetchedObjects == nil) || ([fetchedObjects count] == 0)) {
-        
-        
-        [SVProgressHUD showErrorWithStatus:@"Not found any citys on data base"];
-        
-    } else {
-        
-        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-        [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        
-        
-        JHMCity * city = (JHMCity *) [fetchedObjects objectAtIndex:0];
-        self.alertName = [NSString stringWithFormat:@"%@ greater than %@",city.name,self.speedAlertTextField.text];
-        self.alert = [JHMAlert alertAnyDirectionWithName:self.alertName                                                         withCity:city
-                                                     speedTrigger:[f numberFromString:self.speedAlertTextField.text]                                                       minDegrees:[f numberFromString:self.minLabel.text]
-                                                       maxDegrees:[f numberFromString:self.maxLabel.text]
-                                                          context:self.model.context];
-        [self.model saveWithErrorBlock:^(NSError *error) {
-            NSLog(@"Error saving %s \n\n %@",__func__, error);
-        }];
-        
-        [self scheduleNotification];
-        
-        [SVProgressHUD showSuccessWithStatus:@"New Alert Added"];
+    if ([self.speedAlertTextField.text isEqualToString:@""]) {
+        [SVProgressHUD showErrorWithStatus:@"Wind speed must be introduced"];
+        [self.speedAlertTextField becomeFirstResponder];
 
     }
-    
+    else {
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"City"
+                                                  inManagedObjectContext:self.model.context];
+        [fetchRequest setEntity:entity];
+        
+        NSPredicate * predicateByIdCity = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"idCity=%@",self.selectedCity.idCity]];
+        
+        [fetchRequest setPredicate:predicateByIdCity];
+        
+        NSError *error;
+        NSArray *fetchedObjects = [self.model.context executeFetchRequest:fetchRequest error:&error];
+        
+        
+        if ((fetchedObjects == nil) || ([fetchedObjects count] == 0)) {
+            
+            
+            [SVProgressHUD showErrorWithStatus:@"Not found any citys on data base"];
+            
+        } else {
+            
+            NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+            [f setNumberStyle:NSNumberFormatterDecimalStyle];
+            
+            
+            JHMCity * city = (JHMCity *) [fetchedObjects objectAtIndex:0];
+            self.alertName = [NSString stringWithFormat:@"Wind speed of %@ greater than %@",city.name,self.speedAlertTextField.text];
+            self.alert = [JHMAlert alertAnyDirectionWithName:self.alertName
+                                                    withCity:city
+                                                speedTrigger:[f numberFromString:self.speedAlertTextField.text]
+                                                  minDegrees:[f numberFromString:self.minLabel.text]
+                                                  maxDegrees:[f numberFromString:self.maxLabel.text]
+                                                     context:self.model.context];
+            [self.model saveWithErrorBlock:^(NSError *error) {
+                NSLog(@"Error saving %s \n\n %@",__func__, error);
+            }];
+            
+            [self startNotificationsCron];
+            
+            [SVProgressHUD showSuccessWithStatus:@"New Alert Added"];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+        }
+
+    }
 }
-- (void)scheduleNotification {
+#pragma mark - Handle notifications
+
+- (void)clearNotifications {
+	
+	[[UIApplication sharedApplication] cancelAllLocalNotifications];
+}
+
+
+- (void) startNotificationsCron {
 	
     
+    // Just for avoid multiple crons, clean previous notification cron and schedule a new one
+    [self clearNotifications];
+    
+    // Schedule a periodic cron
+    // TODO set 1 houeralert
 	Class cls = NSClassFromString(@"UILocalNotification");
 	if (cls != nil) {
 		
 		UILocalNotification *notif = [[cls alloc] init];
-		notif.fireDate = [NSDate date];
+		notif.fireDate = [[NSDate date]dateByAddingTimeInterval:30.0]; // The first one will be in 30 seconds
 		notif.timeZone = [NSTimeZone defaultTimeZone];
-		
-		notif.alertBody = [NSString stringWithFormat:@"We have a wind alert for you, %@", self.alert.name ];
-		notif.alertAction = @"Show me";
-		notif.soundName = UILocalNotificationDefaultSoundName;
+        notif.soundName = UILocalNotificationDefaultSoundName;
 		notif.applicationIconBadgeNumber = 1;
 		
+        // The local notification will be launched every minute
         notif.repeatInterval = NSMinuteCalendarUnit;
 		
 		NSDictionary *userDict = [NSDictionary dictionaryWithObject:self.alertName

@@ -17,5 +17,6 @@
 
 // Property for the model
 @property (strong, nonatomic) AGTSimpleCoreDataStack * model;
+@property (nonatomic, strong) NSArray * cities;
 
 @end

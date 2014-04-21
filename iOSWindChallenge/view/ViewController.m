@@ -30,7 +30,7 @@
 @property (nonatomic,strong)  CLLocation * currentLocation;
 @property (nonatomic) CLLocationCoordinate2D userLocation;
 @property (nonatomic,strong)  CLLocationManager * locationManager;
-@property (strong, nonatomic) NSArray * cities;
+@property (nonatomic, strong) NSArray * cities;
 @property (nonatomic,strong) NSMutableArray * CityVenues;
 @property (nonatomic,strong) CLLocation * foundLocation;
 @property (nonatomic, strong) MKLocalSearch *localSearch;
