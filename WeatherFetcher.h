@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WeatherResult : NSObject <NSCoding>
+@interface WeatherResult : NSObject
 
-@property (nonatomic, readonly) NSString *location;
-@property (nonatomic, readonly) CGFloat temperature;
+@property (nonatomic, readonly) NSString * cityName;
+@property (nonatomic, readonly) CGFloat currentWindSpeedForCity;
+@property (nonatomic, readonly) CGFloat currentDegreesWindSpeedForCity;
 @property (nonatomic, readonly) NSDate *updatedAt;
 
 @end

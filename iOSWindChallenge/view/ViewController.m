@@ -48,11 +48,6 @@
                                              selector:@selector(onBackgroundUpdate:)
                                                  name:@"WeatherUpdated"
                                                object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onActive:)
-                                                 name:UIApplicationDidBecomeActiveNotification
-                                               object:nil];
 
     
     
@@ -120,40 +115,22 @@
 
 - (void)onBackgroundUpdate:(NSNotification *)notification {
     WeatherResult *result = [notification object];
-    [self updateTemperature:result.temperature
-                lastUpdated:result.updatedAt];
-}
-- (BOOL)needsRefresh:(NSDate *)lastUpdated {
-    NSTimeInterval interval = abs([lastUpdated timeIntervalSinceNow]);
-    return abs(interval) > 15;
-}
-- (void)loadFromCache {
-    WeatherResult *cachedResult = [[WeatherFetcher sharedInstance] cachedResult];
-    
-    if (cachedResult) {
-        self.theSearchBar.text = cachedResult.location;
-        [self updateTemperature:cachedResult.temperature
-                    lastUpdated:cachedResult.updatedAt];
-        
-        if ([self needsRefresh:cachedResult.updatedAt] && [[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
-            [self searchForLocation:cachedResult.location];
-        }
-    }
+    NSLog(@"Log Debug Trace ::: currentWindSpeedForCity : %f", result.currentWindSpeedForCity);
+    NSLog(@"Log Debug Trace ::: result.currentDegreesWindSpeedForCity : %f", result.currentDegreesWindSpeedForCity);
+
 }
 
-- (void)searchForLocation:(NSString *)location {
-    
 
-    
-    [[WeatherFetcher sharedInstance] fetchWeatherForLocation:location completion:^(WeatherResult *result) {
-        [SVProgressHUD show];
-        [self updateTemperature:result.temperature
-                    lastUpdated:result.updatedAt];
-    }];
-}
-- (void)onActive:(NSNotification *)notification {
-    [self loadFromCache];
-}
+//- (void)searchForLocation:(NSString *)location {
+//    
+//    [[WeatherFetcher sharedInstance] fetchWeatherForLocation:location completion:^(WeatherResult *result) {
+//        [SVProgressHUD show];
+//        [self updateTemperature:result.temperature
+//                    lastUpdated:result.updatedAt];
+//    }];
+//}
+
+
 
 - (void)updateTemperature:(CGFloat)temp lastUpdated:(NSDate *)updatedAt {
     

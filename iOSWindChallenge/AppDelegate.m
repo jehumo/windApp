@@ -76,83 +76,57 @@
             [fetchRequest setEntity:entity];
             NSArray *fetchedObjects = [self.model.context executeFetchRequest:fetchRequest error:&error];
             
+            __block NSString * messsageAllTitlesAlert=@"";
+            __block NSString * messsageAllMessagesAlert=@"";
             
             for (JHMCity * cityAlert in fetchedObjects) {
                 NSLog(@"Name: %@", cityAlert.name);
                 NSLog(@"IdCity: %@", cityAlert.idCity);
                 
-                // TODO search by cityId
-                NSDictionary *queryParams = @{
-                                              @"q" : cityAlert.name,
-                                              @"mode" : @"json"
-                                              };
-                [[RKObjectManager sharedManager] getObjectsAtPath:@"/data/2.5/find"
-                                                       parameters:queryParams
-                                                          success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                              
+                [[WeatherFetcher sharedInstance] fetchWeatherForLocation:cityAlert.name
+                                                                  completion:^(WeatherResult *cityReturned) {
+                                                                      
+                                    
+                                    double currentWindSpeedForCity = cityReturned.currentWindSpeedForCity;
+                                    double currentWindDegreesForCity = cityReturned.currentDegreesWindSpeedForCity;
+                                    
+                                    NSLog(@"Log Debug Trace ::: cityReturned : %@", cityReturned.cityName);
+                                    NSLog(@"Log Debug Trace ::: currentWindSpeedForCity : %f", currentWindSpeedForCity);
+                                    NSLog(@"Log Debug Trace ::: currentWindDegreesForCity : %f", currentWindDegreesForCity);
+                                    NSLog(@"Log Debug Trace ::: (degrees min, degrees max) : (%f,%f)", [entityAlert.degreesMin doubleValue],[entityAlert.degreesMax doubleValue]);
+                                    
+                                    
+                                    // Comparing the values in order to trigger the alert.
+                                    // Only will be triggered when is greater to the selected speed within the range degree
+                                    if  ((currentWindSpeedForCity > [entityAlert.speedTrigger doubleValue] ) &&
+                                         ((currentWindDegreesForCity > [entityAlert.degreesMin doubleValue] ) && (currentWindDegreesForCity < [entityAlert.degreesMax doubleValue]))) {
+                                        NSString * titleAlert =[NSString stringWithFormat:@"%@ alert!\n",cityReturned.cityName];
+                                        NSString * messageBody = [NSString stringWithFormat:@"Your alert %@ has been fired, current wind speed of %.1f!\n", entityAlert.name,currentWindSpeedForCity ];
+                                        
 
-                                                              self.cities = mappingResult.array;
-                                                              
-                                                              if (self.cities.count >0 ) {
-                                                                  
-                                                                  City * cityReturned = (City *) [self.cities objectAtIndex:0];
-                                                                  
-                                                                  double currentWindSpeedForCity = [cityReturned.wind.speed doubleValue];
-                                                                  double currentWindDegreesForCity = [cityReturned.wind.degrees doubleValue];
-                                                                  NSLog(@"Log Debug Trace ::: cityReturned : %@", cityReturned.name);
-                                                                  NSLog(@"Log Debug Trace ::: currentWindSpeedForCity : %f", currentWindSpeedForCity);
-                                                                  NSLog(@"Log Debug Trace ::: currentWindDegreesForCity : %f", currentWindDegreesForCity);
-                                                                  NSLog(@"Log Debug Trace ::: (degrees min, degrees max) : (%f,%f)", [entityAlert.degreesMin doubleValue],[entityAlert.degreesMax doubleValue]);
+                                        
+                                        messsageAllTitlesAlert = [messsageAllTitlesAlert stringByAppendingString:titleAlert];
+                                        messsageAllMessagesAlert = [messsageAllMessagesAlert stringByAppendingString:messageBody];
+                                        
+                                        
+                                        if (([cityAlert isEqual:[fetchedObjects lastObject]]) && ( state == UIApplicationStateActive)) {
+                                            // For better user experience. Only will show the alert when the App is active and if there is no more objects to check
+                                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:messsageAllTitlesAlert
+                                                                                                message:messsageAllMessagesAlert
+                                                                                               delegate:self
+                                                                                      cancelButtonTitle:@"OK"
+                                                                                      otherButtonTitles:nil];
+                                                [alert show];
+                                                application.applicationIconBadgeNumber = 0;
 
-
-                                                                  // Comparing the values in order to trigger the alert.
-                                                                  // Only will trigger when is greater to the selected speed within the range degree
-                                                                  if  ((currentWindSpeedForCity > [entityAlert.speedTrigger doubleValue] ) &&
-                                                                      ((currentWindDegreesForCity > [entityAlert.degreesMin doubleValue] ) && (currentWindDegreesForCity < [entityAlert.degreesMax doubleValue]))) {
-                                                                      NSString * messageBody = [NSString stringWithFormat:@"Your alert %@ has been fired", entityAlert.name ];
-
-                                                                     
-                                                                      // Only show the alert when the App is active
-                                                                      if (  state == UIApplicationStateActive) {
-                                                                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wind Alert!"
-                                                                                                                          message:messageBody
-                                                                                                                         delegate:self
-                                                                                                                cancelButtonTitle:@"OK"
-                                                                                                                otherButtonTitles:nil];
-                                                                          [alert show];
-                                                                      }
-                                                                  }
-                                                                  
-                                                                  
-                                                                  // Always request to reload the view with posible alerts
-                                                                  // TODO
-                                                                  [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData"
-                                                                                                                      object:self];
-                                                                  
-                                                                  // Set icon badge number to zero
-                                                                  application.applicationIconBadgeNumber = 0;
-                                                                  
-                                                                  
-                                                              } else {
-                                                                  NSLog(@"No city found");
-                                                                  
-                                                              }
-                                                          }
-                                                          failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                                              NSLog(@"Log Error Trace :::Operation Failed %@", error);
-                                                              
-                                                          }];
-
-                
-                
-        }
-            
-            
+                                        }
+                                    }
+                            }];
             }
-        
         }
     }
-
+}
+    
 
 // This only works fine with iOS 7.
 //- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
